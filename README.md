@@ -24,7 +24,7 @@
 - has_many :product_categories
 
 
-##categoriesテーブル
+## categories table
 
 |Column|Type|Options|
 |------|----|-------|
@@ -34,9 +34,10 @@
 
 ### Association
 - has_many : product_categories
-- has_many : products,through: :product_categories
+- has_many : products, through: :product_categories
 
-##brandsテーブル
+
+## brands table
 
 |Column|Type|Options|
 |------|----|-------|
@@ -45,7 +46,8 @@
 ### Association
 - has_many :products
 
-##product_categoriesテーブル
+
+## product_categories table
 
 |Column|Type|Options|
 |------|----|-------|
@@ -56,7 +58,8 @@
 - belongs_to :product
 - belongs_to :category
 
-##likesテーブル
+
+## likes table
 
 |Column|Type|Options|
 |------|----|-------|
@@ -68,7 +71,7 @@
 - belongs_to :product
 
 
-## cardsテーブル
+## cards table
 
 |Column|Type|Options|
 |-----|----|-------|
@@ -82,33 +85,52 @@
 - belongs_to :user
 
 
-
-## commentsテーブル
+## comments table
 
 |Column|Type|Options|
 |-----|----|-------|
 |comment|text|null: false|
-|user_id|references|null:false,  foreign_key:true|
-|product_id|references|null: false,  foreign_key:true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :product
 
 
-
-## addressesテーブル
+## addresses table
 
 |Column|Type|Options|
 |-----|----|-------|
 |postal_code|string|null: false|
-|prefecture|string|null:false|
-|city|string|null:false|
-|address|string|null:false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
 |apartment|string||
-|user_id|references|null:false,  foreign_key:true|
-
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 
+
+## users table
+
+|Column|Type|Options|
+|———|——|———|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|myoji|string|null: false|
+|namae|string|null: false|
+|birthday|string|null: false|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|phone|string|null: false, unique: true|
+|password|string|null: false|
+|icon|string|null: false|
+|profile|text||
+
+### Association
+- has_many :products
+- has_many :cards
+- has_many :comments
+- has_many :addresses
