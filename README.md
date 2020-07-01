@@ -101,7 +101,7 @@
 ## addresses table
 
 |Column|Type|Options|
-|-----|----|-------|
+|------|----|-------|
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -116,7 +116,7 @@
 ## users table
 
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |myoji|string|null: false|
