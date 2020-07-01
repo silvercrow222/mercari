@@ -7,19 +7,19 @@
 |category_lower|string|null: false|
 
 ### Association
-- has_many : products_categories
-- has_many : products,through: :products_categories
+- has_many : product_categories
+- has_many : products,through: :product_categories
 
 ##brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 
 ### Association
-- has_many :product
+- has_many :products
 
-##products_categoriesテーブル
+##product_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -30,7 +30,7 @@
 - belongs_to :product
 - belongs_to :category
 
-##likeテーブル
+##likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -38,5 +38,5 @@
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product
