@@ -89,8 +89,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user_id|references|null: false,  foreign_key: true|
-|product_id|references|null: false,  foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -106,7 +106,7 @@
 |city|string|null: false|
 |address|string|null: false|
 |apartment|string||
-|user_id|references|null: false,  foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
