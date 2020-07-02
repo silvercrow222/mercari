@@ -9,11 +9,11 @@
 |brand_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
 |detail|text||
-|condition|string|null: false|
+|condition|integer(enum)|null: false|
 |size|string||
 |days|string|null: false|
-|method|string|null: false|
-|fee|string|null: false|
+|method|integer(enum)|null: false|
+|fee|integer(enum)|null: false|
 |location|string|null: false|
 
 ### Association
