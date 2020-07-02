@@ -4,7 +4,6 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|image|string|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
@@ -22,26 +21,25 @@
 - has_many :categories, through: :product_categories
 - has_many :product_categories
 - has_many :likes, dependent: :destroy
+- has_many :images, dependent: :destroy
 
 
 ## categories table
 
 |Column|Type|Options|
 |------|----|-------|
-|category_upper|string|null: false|
-|category_middle|string|null: false|
-|category_lower|string|null: false|
+|name|ancestry|null: false|
 
 ### Association
 - has_many : product_categories
 - has_many : products, through: :product_categories
-
+- has_ancestry
 
 ## brands table
 
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :products
@@ -118,8 +116,8 @@
 |------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false|
-|myoji|string|null: false|
-|namae|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |birthday|string|null: false|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
@@ -134,3 +132,12 @@
 - has_many :comments, dependent: :destroy
 - has_many :addresses, dependent: :destroy
 - has_many :likes, dependent: :destroy
+
+## images table
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+
+### Association
+- belongs_to :product
+
