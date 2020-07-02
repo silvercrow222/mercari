@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   private
   def ensure_corrent_user
     product = Product.find(params[:id])
-    product.user_id != current_user.id
+    product.user_id == current_user.id
     flash[:notice] = "no authorization"
     redirect_to action: :index
   end
