@@ -13,7 +13,7 @@
 |days|string|null: false|
 |method|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
-|location|string|null: false|
+|location(acitve_hash)|integer|null: false|
 
 ### Association
 - belongs_to :user
@@ -88,9 +88,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
-|prefecture|string|null: false|
+|prefecture_id(acitve_hash)|integer|null: false|
 |city|string|null: false|
-|address|string|null: false|
+|block|string|null: false|
 |apartment|string||
 |user_id|references|null: false, foreign_key: true|
 
@@ -124,6 +124,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product
