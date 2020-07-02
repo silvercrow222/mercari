@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :ensure_corrent_user, only: :destroy
+  before_action :ensure_current_user, only: :destroy
   before_action :set_product, only: :destroy
 
   def index
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   private
-  def ensure_corrent_user
+  def ensure_current_user
     product = Product.find(params[:id])
     if product.user_id != current_user.id
       flash[:notice] = "no authorization"
