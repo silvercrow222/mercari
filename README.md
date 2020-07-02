@@ -13,7 +13,7 @@
 |days|string|null: false|
 |method|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
-|location(acitve_hash)|integer|null: false|
+|prefecture_id(acitve_hash)|integer|null: false|
 
 ### Association
 - belongs_to :user
