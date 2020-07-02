@@ -18,8 +18,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- has_many :categories, through: :product_categories
-- has_many :product_categories
+- has_many :categories
 - has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
 
@@ -28,11 +27,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|ancestry|null: false|
+|name|string|null: false|
+|ancestry|string||
 
 ### Association
-- has_many : product_categories
-- has_many : products, through: :product_categories
+- belongs_to :product
 - has_ancestry
 
 ## brands table
@@ -43,19 +42,6 @@
 
 ### Association
 - has_many :products
-
-
-## product_categories table
-
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :product
-- belongs_to :category
-
 
 ## likes table
 
