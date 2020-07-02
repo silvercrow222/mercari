@@ -21,6 +21,7 @@
 - belongs_to :brand
 - has_many :categories, through: :product_categories
 - has_many :product_categories
+- has_many :likes, dependent: :destroy
 
 
 ## categories table
@@ -128,7 +129,8 @@
 |profile|text||
 
 ### Association
-- has_many :products
-- has_many :cards
-- has_many :comments
-- has_many :addresses
+- has_many :products, dependent: :destroy
+- has_many :cards, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :addresses, dependent: :destroy
+- has_many :likes, dependent: :destroy
