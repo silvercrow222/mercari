@@ -28,7 +28,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|ancestry|null: false|
+|name|string|null: false|
+|ancestry|string|null: false|
 
 ### Association
 - has_many : product_categories
