@@ -49,9 +49,7 @@ fieldset,
 img {
 	border:0;
 }
-/*
-	TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
-*/
+
 address,
 caption,
 cite,
@@ -105,7 +103,7 @@ select {
 	font-family:inherit;
 	font-size:inherit;
 	font-weight:inherit;
-	*font-size:100%; /*to enable resizing for IE*/
+	font-size:100%; /*to enable resizing for IE*/
 }
 /*because legend doesn't inherit in IE */
 legend {
