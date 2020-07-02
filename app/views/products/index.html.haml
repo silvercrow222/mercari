@@ -1,0 +1,7 @@
+- if user_signed_in?
+  - @products.each do |product|
+    = link_to product_path(product.id), method: :delete do
+      #{product.name}
+
+= link_to 'Log in', new_user_session_path, method: :post
+= link_to 'Log out', destroy_user_session_path, method: :delete
