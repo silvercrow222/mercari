@@ -4,8 +4,8 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |detail|text||
 |condition|integer(enum)|null: false|
