@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
   before_action :ensure_corrent_user, only: :destroy
+  before_action :set_product, only: :destroy
 
   def index
     @products = Product.all
   end
   def destroy
-    product = Product.find(params[:id])
-    product.delete
+    if @product.delete
+      redirect_to products_path, notice: '削除されました'
+    else 
+      render :index
+    end
   end
 
   private
@@ -16,5 +20,8 @@ class ProductsController < ApplicationController
       flash[:notice] = "no authorization"
       redirect_to action: :index
     end
+  end
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
