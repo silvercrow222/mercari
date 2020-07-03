@@ -14,21 +14,9 @@ ActiveRecord::Schema.define(version: 2020_07_02_100203) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
-    t.bigint "bland_id", null: false
     t.string "name", null: false
-    t.integer "price", null: false
-    t.text "detail"
-    t.integer "condition", null: false
-    t.string "size"
-    t.string "days", null: false
-    t.integer "method", null: false
-    t.integer "fee", null: false
-    t.string "location", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bland_id"], name: "index_products_on_bland_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
