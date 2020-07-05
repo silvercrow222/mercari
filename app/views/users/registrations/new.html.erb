@@ -1,29 +1,90 @@
 <h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= render "devise/shared/links" %>
+<br>
+<br>
+<%= form_for(@user, url: user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :"ニックネーム" %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" , placeholder: "例)ジョー" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :"メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "PC・携帯どちらでも可" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"パスワード" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password" , placeholder: "7文字以上の半角英数字" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :"パスワード(確認用)" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder: "" %>
+  </div>
+  <br>
+  <h2>本人確認</h2>
+  <div>
+  安心・安全にご利用いただくために、<br>
+  お客さまの本人情報の登録にご協力ください。<br>
+  他のお客さまに公開されることはありません。</div>
+  <br>
+  <h2>お名前(全角)</h2>
+  <div class="field">
+    <%= f.label :"苗字" %><br />
+    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" , placeholder: "例)山田" %>
   </div>
 
+  <div class="field">
+    <%= f.label :"名前" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+お名前カナ(全角)
+  <div class="field">
+    <%= f.label :"苗字(かな)" %><br />
+    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"名前(かな)" %><br />
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"生年月日" %><br />
+    <%= f.date_select(
+        :birthday,
+        include_blank: true,
+        use_month_numbers: true,
+        start_year: 1900,
+        end_year: (Time.now.year - 1),
+        default: Date.new(1990, 1, 1)) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"電話番号" %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"プロフィール" %><br />
+    <%= f.text_field :profile, autofocus: true, autocomplete: " profile" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"アイコン" %><br />
+    <%= f.text_field :icon, autofocus: true, autocomplete: "icon" %>
+  </div>
+
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Next" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
+<br>

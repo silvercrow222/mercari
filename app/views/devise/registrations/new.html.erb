@@ -1,8 +1,9 @@
 <h2>Sign up</h2>
+<%= render "devise/shared/links" %>
 <br>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+<br>
+<%= form_for(@user, url: user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
 
   <div class="field">
     <%= f.label :"ニックネーム" %><br />
@@ -81,11 +82,9 @@
     <%= f.text_field :icon, autofocus: true, autocomplete: "icon" %>
   </div>
 
-
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Next" %>
   </div>
 <% end %>
-<br>
-<%= render "devise/shared/links" %>
 <br>
