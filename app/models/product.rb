@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   enum fee: {"送料込み（出品者負担)":1, "送料込み（出品者負担）":2, "着払い（購入者負担）":3, "着払い（購入者負担）":4}
   enum day: {"1~2日で発送":1,  "2〜3日で発送":2,"4〜7日で発送":3}
   enum method: {"メルカリ便":0, "ヤマト":1, "レターパック":2}
+  enum status: {"出品中":0, "購入済み":1}
   enum prefecture_id:{
     "北海道":1,"青森県":2,"岩手県":3,"宮城県":4,"秋田県":5,"山形県":6,"福島県":7,
     "茨城県":8,"栃木県":9,"群馬県":10,"埼玉県":11,"千葉県":12,"東京都":13,"神奈川県":14,
@@ -18,12 +19,11 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
-  # has_many :comments, dependent: :destroy
-  # has_many :likes
-  # has_many :liked_users, through: :likes, source: :user
   validates :name, :detail, presence: true
-  validates :price, presence: true    #, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :fee, :condition, :day, :user_id, :prefecture_id, presence: true  #, :method
+  validates :status, presence: true
+  # validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}
 
   accepts_nested_attributes_for :images, allow_destroy: true
 end
