@@ -42,18 +42,18 @@
 
   <div class="field">
     <%= f.label :"名前" %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" , placeholder: "例)太郎" %>
   </div>
 
 お名前カナ(全角)
   <div class="field">
-    <%= f.label :"苗字(かな)" %><br />
-    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
+    <%= f.label :"苗字(カナ)" %><br />
+    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" , placeholder: "例)ヤマダ" %>
   </div>
 
   <div class="field">
-    <%= f.label :"名前(かな)" %><br />
-    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+    <%= f.label :"名前(カナ)" %><br />
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" , placeholder: "例)タロウ" %>
   </div>
 
   <div class="field">
