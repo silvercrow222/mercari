@@ -16,12 +16,13 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @product = Product.new(product_params)
     if @product.images.present?
       @product.save
       redirect_to root_path
     else
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -33,7 +34,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def purchase
+    @product_buyer= Product.find(params[:id])
+    @product_buyer.update( buyer_id: current_user.id, status: "購入済み")
+    redirect_to root_path
+  end
+
   private
+  def product_params
+    params.require(:product).permit(:name, :price, :detail, :fee, :condition, :day, :size, :method, :brand_id, :prefecture_id, :user_id, :category_id, :status, images_attributes: [:product_image,:_destroy,:id])
+  end
+
   # def ensure_current_user
   #   product = Product.find(params[:id])
   #   if product.user_id != current_user.id

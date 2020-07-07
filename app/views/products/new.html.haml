@@ -8,7 +8,7 @@
   .Forms
     = f.text_field :name, placeholder: '商品名', required: true
     = f.text_area :detail, placeholder: '商品説明', required: true
-    -# = f.collection_select :category_id, Category.all.limit(13), :id, :name, {prompt:"---"}
+    = f.select :category_id, [1, 2, 3, 4, 5, 6, 7, 8, 9]
     = f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}
     = f.select :size, Product.sizes.keys, {prompt:"---"}
     = f.select :condition, Product.conditions.keys, {prompt:"---"}, required: true
