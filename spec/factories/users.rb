@@ -9,8 +9,8 @@ FactoryBot.define do
     nickname              {"abe"}
     phone                  {"00000000000"}
     email                 {"kkk@gmail.com"}
-    password               {"00000000"}
-    password_confirmation  {"00000000"}
+    password               {"0000000"}
+    password_confirmation  {"0000000"}
     icon              {"abe"}
     profile              {"abe"}
   end

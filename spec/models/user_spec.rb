@@ -51,11 +51,11 @@ describe User do
     end
     
     # 8. birthdayが空では登録できないこと
-      it "is invalid without a birthday" do
-        user = build(:user, birthday: nil)
-        user.valid?
-        expect(user.errors[:birthday]).to include("can't be blank")
-      end
+    it "is invalid without a birthday" do
+      user = build(:user, birthday: nil)
+      user.valid?
+      expect(user.errors[:birthday]).to include("can't be blank")
+    end
 
     # 9. passwordが空では登録できないこと
     it "is invalid without a password" do
@@ -79,34 +79,18 @@ describe User do
       expect(another_user.errors[:email]).to include("has already been taken")
     end
 
-  #   # 14. passwordが7文字以上であれば登録できること
-  #   it "is valid with a password that has more than 7 characters " do
-  #     user = build(:user, password: "0000000", password_confirmation: "0000000")
-  #     user.valid?
-  #     expect(user).to be_valid
-  #   end
+    # 12. passwordが7文字以上であれば登録できること
+    it "is valid with a password that has more than 7 characters " do
+      user = build(:user, password: "0000000", password_confirmation: "0000000")
+      user.valid?
+      expect(user).to be_valid
+    end
 
-  #   # 15. passwordが6文字以下であれば登録できないこと
-  #   it "is invalid with a password that has less than 6 characters " do
-  #     user = build(:user, password: "000000", password_confirmation: "000000")
-  #     user.valid?
-  #     expect(user.errors[:password]).to include("は7文字以上で入力してください")
-  #   end
-  # end
-
-  # # 16. last_name_kanaがカタカナでないと登録できないこと
-  # describe '#katakana' do
-  #   it 'family_name_kanaがカタカナで返ること' do
-  #     user = build(:user, family_name_kana: "kana")
-  #     user.valid?
-  #     expect(user.errors[:family_name_kana]).to include("はカタカナで入力してください")
-  #   end
-
-  #   # 17. first_name_kanaがカタカナでないと登録できないこと    
-  #   it 'first_name_kanaがカタカナで返ること' do
-  #     user = build(:user, first_name_kana: "kana")
-  #     user.valid?
-  #     expect(user.errors[:first_name_kana]).to include("はカタカナで入力してください")
-  #   end
+    # 13. passwordが5文字以下であれば登録できないこと
+    it "is valid with a password that has less than 5 characters " do
+      user = build(:user, password: "00000", password_confirmation: "00000")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+    end
   end
 end
