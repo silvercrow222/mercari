@@ -3,11 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday, :nickname, :phone, :email, :encrypted_password, :icon, :profile, presence: true
+
+  VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_PHONE = /\A\d{10}$|^\d{11}\z/
+  VALID_KATAKANA = /\A[\p{katakana}\p{blank}ー－]+\z/
+
+  validates :family_name, :first_name, :birthday, :nickname, :encrypted_password, :icon, presence: true
+  validates :profile, presence: true, allow_blank: true
+  validates :email, {presence: true, format: { with: VALID_EMAIL }, uniqueness: { case_sensitive: false }}
+  validates :phone, {presence: true, format: { with: VALID_PHONE }, uniqueness: { case_sensitive: false }}
+  validates :family_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
+  validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
+
   has_one :address
-
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
-  VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
-
 end

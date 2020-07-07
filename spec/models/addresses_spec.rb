@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Address do
   describe '#create' do
     # 1. postal_code以下の要素が存在すれば登録できること
-    it "is valid with a postal_code, prefecture_id, city, block, apartment " do
+    it "is valid with a postal_code, prefecture_id, city, block" do
       address = build(:address)
       expect(address).to be_valid
     end
@@ -36,11 +36,12 @@ describe Address do
       expect(address.errors[:block]).to include("can't be blank")
     end
  
-    # 6. apartmentが空では登録できないこと
-    it "is invalid without a apartment" do
+    # 6. apartmentが空でも登録できること
+    it "is valid with a apartment" do
       address = build(:address, apartment: nil)
       address.valid?
-      expect(address.errors[:apartment]).to include("can't be blank")
+      address = build(:address)
+      expect(address).to be_valid
     end
   end
 end
