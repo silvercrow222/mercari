@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   has_many :images
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, :detail, :fee, :condition, :day, :user_id, :prefecture_id, presence: true
+  validates :name, :detail, :fee, :condition, :day, :user_id, :prefecture_id, :shipping, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 
   enum brand_id: {"シャネル": 0, 
@@ -43,9 +43,9 @@ class Product < ApplicationRecord
               "2〜3日で発送":2,
               "4〜7日で発送":3 }
 
-  enum method: {"メルカリ便":1, 
-                "ヤマト":2, 
-                "レターパック":3 }
+  enum shipping: {"メルカリ便":1, 
+                  "ヤマト":2, 
+                  "レターパック":3 }
 
   enum prefecture_id:{
     "北海道":1,     "青森県":2,     "岩手県":3,

@@ -11,7 +11,7 @@
   %br/
   商品の状態#{f.select :condition, Product.conditions.keys, required: true}
   %br/
-  配送方法#{f.select :method, Product.methods.keys, required: true}
+  配送方法#{f.select :shipping, Product.shippings.keys, required: true}
   %br/
   配送料#{f.select :fee, Product.fees.keys, required: true}
   %br/
