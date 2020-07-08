@@ -1,8 +1,25 @@
-= form_with model: @product, class: "form", id: "product-form", local: true do |f|
-  商品名#{f.text_field :name}
+= form_with model: @product, local: true do |f|
+  商品名#{f.text_field :name, required: true}
   %br/
-  価格#{f.number_field :price}
+  説明#{f.text_area :detail, required: true}
   %br/
+  価格#{f.number_field :price, required: true}
+  %br/
+  ブランド名#{f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}}
+  %br/
+  サイズ#{f.select :size, Product.sizes.keys, {prompt:"---"}}
+  %br/
+  商品の状態#{f.select :condition, Product.conditions.keys, required: true}
+  %br/
+  配送方法#{f.select :method, Product.methods.keys, required: true}
+  %br/
+  配送料#{f.select :fee, Product.fees.keys, required: true}
+  %br/
+  配送までの日数#{f.select :day, Product.days.keys, required: true}
+  %br/
+  配送元#{f.select :prefecture_id, Product.prefecture_ids.keys, required: true}
+  %br/
+  画像
   #image-box
     = f.fields_for :images do |image|
       .js-file_group{"data-index" => "#{image.index}"}
@@ -10,3 +27,18 @@
         %br/
         %span.js-remove 削除
   = f.submit
+
+
+-# .Forms
+-#     = f.text_field :name, placeholder: '商品名', required: true
+-#     = f.text_area :detail, placeholder: '商品説明', required: true
+-#     = f.select :category_id, [1, 2, 3, 4, 5, 6, 7, 8, 9]
+-#     = f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}
+-#     = f.select :size, Product.sizes.keys, {prompt:"---"}
+-#     = f.select :condition, Product.conditions.keys, {prompt:"---"}, required: true
+-#     = f.select :method, Product.methods.keys, {prompt:"---"}
+-#     = f.select :fee, Product.fees.keys, required: true
+-#     = f.select :prefecture_id, Product.prefecture_ids.keys, {prompt:"---"}, required: true
+-#     = f.select :day, Product.days.keys, required: true
+-#     = f.text_field :price, required: true
+-#     = f.submit "出品"
