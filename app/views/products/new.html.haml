@@ -4,5 +4,6 @@
     = f.fields_for :images do |i|
       .js-file_group{ data: { index: i.index } }
         = i.file_field :image_url, class: 'js-file'
+        %br/
         %span{ class: 'js-remove' }削除
   = f.submit 'SEND'

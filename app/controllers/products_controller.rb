@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
   def new
     @product = Product.new
-    @product.images.new
+    @images = @product.images.build
   end
   def create
     @product = Product.new(product_params)
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to products_path, notice: '更新されました'
     else
-      redirect_to edit_product_path(@product)
+      render :edit
     end
   end
   def destroy
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
   end
   def product_params
     #params.require(:product).permit(:user_id, :name, :price, :category_id, :bland_id, :detail, :condition, :size, :days, :method, :fee, images_attributes: [:id, :product_id, :product_image]).merge(user_id: current_user.id)
-    params.require(:product).permit(:name, images_attributes: [:image_url]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, images_attributes: [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   def set_product
     @product = Product.find(params[:id])
