@@ -10,7 +10,7 @@
 |detail|text||
 |condition|integer(enum)|null: false|
 |size|string||
-|days|string|null: false|
+|days|integer(enum)|null: false|
 |method|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
 |prefecture_id(acitve_hash)|integer|null: false|
@@ -19,7 +19,7 @@
 - belongs_to :user
 - belongs_to :brand
 - has_many :categories
-- has_many :likes, dependent: :destroy 
+- has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
 
 
@@ -46,7 +46,7 @@
 
 ## likes table
 
-|Column|Type|Options| 
+|Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
