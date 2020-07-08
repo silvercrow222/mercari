@@ -27,18 +27,3 @@
         %br/
         %span.js-remove 削除
   = f.submit
-
-
--# .Forms
--#     = f.text_field :name, placeholder: '商品名', required: true
--#     = f.text_area :detail, placeholder: '商品説明', required: true
--#     = f.select :category_id, [1, 2, 3, 4, 5, 6, 7, 8, 9]
--#     = f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}
--#     = f.select :size, Product.sizes.keys, {prompt:"---"}
--#     = f.select :condition, Product.conditions.keys, {prompt:"---"}, required: true
--#     = f.select :method, Product.methods.keys, {prompt:"---"}
--#     = f.select :fee, Product.fees.keys, required: true
--#     = f.select :prefecture_id, Product.prefecture_ids.keys, {prompt:"---"}, required: true
--#     = f.select :day, Product.days.keys, required: true
--#     = f.text_field :price, required: true
--#     = f.submit "出品"
