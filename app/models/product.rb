@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   #has_many :categories, through: :product_categories
   #has_many :product_categories
   #has_many :likes, dependent: :destroy
-  #has_many :images, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   #enum fee:{
   #  buyer: 0,
