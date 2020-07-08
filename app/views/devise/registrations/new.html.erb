@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 <%= render "devise/shared/links" %>
 <br>
 <br>
@@ -44,7 +44,7 @@
     <%= f.label :"名前" %><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" , placeholder: "例)太郎" %>
   </div>
-
+<br>
 お名前カナ(全角)
   <div class="field">
     <%= f.label :"苗字(カナ)" %><br />
@@ -55,31 +55,31 @@
     <%= f.label :"名前(カナ)" %><br />
     <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" , placeholder: "例)タロウ" %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :"生年月日" %><br />
     <%= f.date_select(
         :birthday,
         include_blank: true,
         use_month_numbers: true,
-        start_year: 1900,
+        start_year: 1920,
         end_year: (Time.now.year - 1),
-        default: Date.new(1990, 1, 1)) %>
+        default: Date.new(1950, 1, 1)) %>
   </div>
 
   <div class="field">
     <%= f.label :"電話番号" %><br />
-    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: "例)08011110001" %>
   </div>
 
   <div class="field">
     <%= f.label :"プロフィール" %><br />
-    <%= f.text_field :profile, autofocus: true, autocomplete: " profile" %>
+    <%= f.text_field :profile, autofocus: true, autocomplete: " profile", placeholder: "省略可" %>
   </div>
 
   <div class="field">
     <%= f.label :"アイコン" %><br />
-    <%= f.text_field :icon, autofocus: true, autocomplete: "icon" %>
+    <%= f.text_field :icon, autofocus: true, autocomplete: "icon", placeholder: "省略可" %>
   </div>
 
   <br>
