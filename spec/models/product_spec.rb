@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
     it "is invalid without a name" do
       product = build(:product, name: nil)
       product.valid?
-      expect(product.errors[:name]).to include("can't be blank")
+      expect(product.errors[:name]).to include("を入力してください")
     end
     it "is valid with a name" do
       user = create(:user)
