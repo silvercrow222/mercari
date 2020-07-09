@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  has_many :images
+  belongs_to :user
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, :detail, :fee, :condition, :day, :user_id, :prefecture_id, :shipping, presence: true
