@@ -1,0 +1,29 @@
+= form_with model: @product, local: true do |f|
+  商品名#{f.text_field :name, required: true}
+  %br/
+  説明#{f.text_area :detail, required: true}
+  %br/
+  価格#{f.number_field :price, required: true}
+  %br/
+  ブランド名#{f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}}
+  %br/
+  サイズ#{f.select :size, Product.sizes.keys, {prompt:"---"}}
+  %br/
+  商品の状態#{f.select :condition, Product.conditions.keys, required: true}
+  %br/
+  配送方法#{f.select :shipping, Product.shippings.keys, required: true}
+  %br/
+  配送料#{f.select :fee, Product.fees.keys, required: true}
+  %br/
+  配送までの日数#{f.select :day, Product.days.keys, required: true}
+  %br/
+  配送元#{f.select :prefecture_id, Product.prefecture_ids.keys, required: true}
+  %br/
+  画像
+  #image-box
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :src, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+  = f.submit
