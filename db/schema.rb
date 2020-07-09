@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_07_08_100031) do
-
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src", null: false
-    t.bigint "product_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_images_on_product_id"
-
-ActiveRecord::Schema.define(version: 2020_07_05_102200) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -32,20 +22,27 @@ ActiveRecord::Schema.define(version: 2020_07_05_102200) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src", null: false
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "detail"
-    t.integer "price"
-    t.integer "condition"
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.integer "price", null: false
+    t.integer "condition", null: false
     t.integer "size"
-    t.integer "day"
-    t.integer "shipping"
-    t.integer "fee"
+    t.integer "day", null: false
+    t.integer "shipping", null: false
+    t.integer "fee", null: false
     t.integer "brand_id"
-    t.integer "prefecture_id"
+    t.integer "prefecture_id", null: false
     t.integer "buyer_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
