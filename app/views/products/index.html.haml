@@ -3,8 +3,9 @@
 
 - if user_signed_in?
   - @products.each do |product|
-    = link_to product_path(product.id), method: :delete do
-      #{product.name}
+    - if product.user_id == current_user.id
+      = link_to edit_product_path(product.id) do
+        #{product.name}
 
   %h2 ログインしています
   = link_to 'ログアウト', destroy_user_session_path, method: :delete
