@@ -6,16 +6,17 @@
 %body
   .product
     %h1.product_title
-      = "商品名"
+      = @product.name
     %div.product-image
-      %image{src: "https://source.unsplash.com/random", width: "40%", height: "500px"}
+      - @product.images.each do |image|
+        = image_tag "#{image.src.url}"
     %table.product-dateil
       %tbody
         %tr
           %th
             出品者
           %td
-            = "横田"
+            = @product.user.nickname
         %tr
           %th
             カテゴリー
@@ -25,47 +26,47 @@
           %th
             ブランド
           %td
-            = "NIKE"
+            = @product.brand_id
         %tr
           %th
             商品サイズ
           %td
-            = "M"
+            = @product.size
         %tr
           %th
             商品の状態
           %td
-            = "新品・未使用"
+            = @product.condition
         %tr
           %th
             配送料負担
           %td
-            = "送料込み(出品者負担)"
+            = @product.fee
         %tr
           %th
             発送方法
           %td
-            = "普通郵便(定形、定形外)"
+            = @product.shipping
         %tr
           %th
             配送元地域
           %td
-            = "東京都"
+            = @product.prefecture_id
         %tr
           %th
             発送日の目安
           %td
-            = "2~3日で発送"
+            = @product.day
         %tr
     .product-price
-      = "1,000円 (税込み)送料込み"
+      =  "#{@product.price}円"
     .more-list
       - if user_signed_in? && current_user.id == @product.user_id
-        = link_to '商品の編集'#, edit_product_path(product.id), method: :get
+        = link_to '商品の編集', edit_product_path(@product.id)
         %p
           or
         = link_to '出品を一旦停止する'
-        = link_to 'この商品を削除する'#, product_path(product:id), method: :delete
+        = link_to 'この商品を削除する', product_path(@product.id), method: :delete
       - else
         %div#buy-button
           %a.button{:href =>"#"}購入画面に進む

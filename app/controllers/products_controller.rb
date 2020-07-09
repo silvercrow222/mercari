@@ -1,11 +1,6 @@
 class ProductsController < ApplicationController
 
   # before_action :move_to_index, except: [:index, :show]
-  
-  def show
-    @product = Product.find(params[:id])
-  end
-
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
   before_action :set_product, only: [:edit, :update, :destroy]
 
@@ -40,7 +35,7 @@ class ProductsController < ApplicationController
     end
   end
   def destroy
-    if @product.delete
+    if @product.destroy
       redirect_to products_path, notice: '削除されました'
     else 
       render :index

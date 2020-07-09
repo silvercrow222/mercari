@@ -4,7 +4,7 @@
 - if user_signed_in?
   - @products.each do |product|
     - if product.user_id == current_user.id
-      = link_to edit_product_path(product.id) do
+      = link_to product_path(product.id) do
         #{product.name}
   = link_to("出品", new_product_path)
 
