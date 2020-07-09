@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_053244) do
+ActiveRecord::Schema.define(version: 2020_07_08_100031) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_053244) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image_url"
+    t.string "src", null: false
     t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,8 +33,18 @@ ActiveRecord::Schema.define(version: 2020_07_08_053244) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "name", null: false
+    t.text "detail", null: false
+    t.integer "price", null: false
+    t.integer "condition", null: false
+    t.integer "size"
+    t.integer "day", null: false
+    t.integer "shipping", null: false
+    t.integer "fee", null: false
+    t.integer "brand_id"
+    t.integer "prefecture_id", null: false
+    t.integer "buyer_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -62,4 +72,5 @@ ActiveRecord::Schema.define(version: 2020_07_08_053244) do
   end
 
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users"
 end

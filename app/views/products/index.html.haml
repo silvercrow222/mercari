@@ -6,6 +6,7 @@
     - if product.user_id == current_user.id
       = link_to edit_product_path(product.id) do
         #{product.name}
+  = link_to("出品", new_product_path)
 
   %h2 ログインしています
   = link_to 'ログアウト', destroy_user_session_path, method: :delete
@@ -14,5 +15,6 @@
   %h2 ログインしていません
   = link_to '新規登録', new_user_registration_path
   = link_to 'ログイン', new_user_session_path
+
 
 
