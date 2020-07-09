@@ -10,29 +10,33 @@ describe Product do
     
     it "is valid with a name" do
       user = create(:user)
-      product = build(:product)
+      product = build(:product, user_id: user.id)
       expect(product).to be_valid
     end
   end
 
   describe '#create' do
     it "is valid with being full" do
-      product = build(:product)
+      user = create(:user)
+      product = build(:product, user_id: user.id)
       expect(product).to be_valid
     end
 
     it "is valid without size" do
-      product = build(:product, size: nil)
+      user = create(:user)
+      product = build(:product, size: nil, user_id: user.id)
       expect(product).to be_valid
     end
 
     it "is valid without brand_id" do
-      product = build(:product, brand_id: nil)
+      user = create(:user)
+      product = build(:product, brand_id: nil, user_id: user.id)
       expect(product).to be_valid
     end
 
     it "is valid without buyer_id" do
-      product = build(:product)
+      user = create(:user)
+      product = build(:product, user_id: user.id)
       expect(product).to be_valid
     end
 

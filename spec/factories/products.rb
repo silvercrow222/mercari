@@ -11,7 +11,8 @@ FactoryBot.define do
     fee                   {"送料込み（出品者負担)"}
     brand_id              {"シャネル"}
     prefecture_id         {"東京都"}
-    user_id               {1}
+    #user_id               {32}
+    user
   end
 
 end
