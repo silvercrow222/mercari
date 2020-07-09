@@ -1,0 +1,86 @@
+!!!
+%html{lang: "ja"}
+%head
+  %meta{"charset":"UTF-8"}
+  %link{"href": "style.scss", "rel": "stylesheet"}
+%body
+  .product
+    %h1.product_title
+      = "商品名"
+    %div.product-image
+      %image{src: "https://source.unsplash.com/random", width: "40%", height: "500px"}
+    %table.product-dateil
+      %tbody
+        %tr
+          %th
+            出品者
+          %td
+            = "横田"
+        %tr
+          %th
+            カテゴリー
+          %td
+            = "sport"
+        %tr
+          %th
+            ブランド
+          %td
+            = "NIKE"
+        %tr
+          %th
+            商品サイズ
+          %td
+            = "M"
+        %tr
+          %th
+            商品の状態
+          %td
+            = "新品・未使用"
+        %tr
+          %th
+            配送料負担
+          %td
+            = "送料込み(出品者負担)"
+        %tr
+          %th
+            発送方法
+          %td
+            = "普通郵便(定形、定形外)"
+        %tr
+          %th
+            配送元地域
+          %td
+            = "東京都"
+        %tr
+          %th
+            発送日の目安
+          %td
+            = "2~3日で発送"
+        %tr
+    .product-price
+      = "1,000円 (税込み)送料込み"
+    .more-list
+      - if user_signed_in? && current_user.id == @product.user_id
+        = link_to '商品の編集'#, edit_product_path(product.id), method: :get
+        %p
+          or
+        = link_to '出品を一旦停止する'
+        = link_to 'この商品を削除する'#, product_path(product:id), method: :delete
+      - else
+        %div#buy-button
+          %a.button{:href =>"#"}購入画面に進む
+        .exhibitor-comment
+        test
+        test
+        test
+        test
+        test
+        test
+        test
+      %form.comment{:action => "", :method => "get"}
+        %p.attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment_text
+      %button.comment_btn
+        %span
+          コメントする
