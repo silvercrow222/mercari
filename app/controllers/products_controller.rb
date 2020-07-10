@@ -1,11 +1,16 @@
 class ProductsController < ApplicationController
+
+  # before_action :move_to_index, except: [:index, :show]
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
-  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy, :show]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
 
+  def show
+  end
+  
   def new
     @product = Product.new
     @product.images.new
@@ -29,7 +34,7 @@ class ProductsController < ApplicationController
     end
   end
   def destroy
-    if @product.delete
+    if @product.destroy
       redirect_to products_path, notice: '削除されました'
     else 
       render :index
@@ -45,8 +50,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  private
-
   def product_params
     params.require(:product).permit(:name, :detail, :condition, :size, :day, :shipping, :fee, :brand_id, :prefecture_id, :buyer_id, :price, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
@@ -54,5 +57,9 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+  
+  # def move_to_index
+  #   redirecto_to action: :index unless user_signed_in?
+  # end
 
 end

@@ -17,4 +17,5 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
 
   has_one :address
+  
 end
