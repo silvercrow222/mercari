@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
-#
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -14,7 +14,10 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '8f11eb4d7e79205d92c6631748c6cc7a0fd0fd3647c8ff1c03975fd6ee0747164a69c72f137c43e1b8b3be1b90dce8142e90c949a25c6aadff85283d7bb33505'
+  # config.secret_key = 'a01376a0e583acc1b9eff91fb6cf2008b807dc6beeff70abff372ca71ea9c6f9f5724a8eb3fd3579523260012fd3ca0cad6891784bb202397de8b2c5835c1ece'
+
+  # config.secret_key = '86c3725e63d7aa452802a1d58d4103a6d38023e53fdbf25c6e3d3028b46e3d1031099926d708bcb169528ed9d4bfce69cde47d172195c68932ee0eaccc3117cd'
+
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -78,6 +81,9 @@ Devise.setup do |config|
   # For API-only applications to support authentication "out-of-the-box", you will likely want to
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
+
+  # enable it only for database authentication. The supported strategies are:
+
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
@@ -112,21 +118,28 @@ Devise.setup do |config|
   # config.reload_routes = true
 
   # ==> Configuration for :database_authenticatable
+
   # For bcrypt, this is the cost for hashing the password and defaults to 12. If
   # using other algorithms, it sets how many times you want the password to be hashed.
   # The number of stretches used for generating the hashed password are stored
   # with the hashed password. This allows you to change the stretches without
   # invalidating existing passwords.
+
+  # For bcrypt, this is the cost for hashing the password and defaults to 11. If
+  # using other algorithms, it sets how many times you want the password to be hashed.
+
   #
   # Limiting the stretches to just one in testing will increase the performance of
   # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
+
+
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'de548da8c9969a46235d1010c08d00e4f08eee7261497318f585455a3634a875b722399aac5d389d647e8d26c99f4ce0a55c544ffc211aa7feb5c8612969ccbb'
+  # config.pepper = 'b0e26ca71dfa841dfc535e08ad5190bd8898dd86079f16a5da2b5f458a0f8cd6f02297658e6da124099d341569bd8ccda492c5d59db78ac953ebb68fe0d91956'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -178,7 +191,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+
+  config.password_length = 7..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly

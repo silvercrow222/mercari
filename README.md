@@ -10,7 +10,7 @@
 |detail|text||
 |condition|integer(enum)|null: false|
 |size|string||
-|days|string|null: false|
+|days|integer(enum)|null: false|
 |method|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
 |prefecture_id(acitve_hash)|integer|null: false|
@@ -129,4 +129,3 @@
 
 ### Association
 - belongs_to :product
-
