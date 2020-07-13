@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.find(params[:id])
-    @grandchild = Category.find(@products.category_id)
+    @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
   end
@@ -32,6 +31,7 @@ class ProductsController < ApplicationController
   end
   
   def edit
+    @category = Category.all.order("id ASC").limit(13)
   end
     
   def category_children
