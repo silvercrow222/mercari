@@ -9,5 +9,14 @@ Rails.application.routes.draw do
   end
   root "products#index"
 
-  resources :products
+  resources :products do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end

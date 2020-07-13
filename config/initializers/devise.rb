@@ -6,7 +6,6 @@
 # are not: uncommented lines are intended to protect your configuration from
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
-
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -15,7 +14,6 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-
   # config.secret_key = 'a01376a0e583acc1b9eff91fb6cf2008b807dc6beeff70abff372ca71ea9c6f9f5724a8eb3fd3579523260012fd3ca0cad6891784bb202397de8b2c5835c1ece'
 
   # config.secret_key = '86c3725e63d7aa452802a1d58d4103a6d38023e53fdbf25c6e3d3028b46e3d1031099926d708bcb169528ed9d4bfce69cde47d172195c68932ee0eaccc3117cd'
@@ -79,12 +77,11 @@ Devise.setup do |config|
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
-
   # enable it only for database authentication.
   # For API-only applications to support authentication "out-of-the-box", you will likely want to
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
-  
+
   # enable it only for database authentication. The supported strategies are:
 
   # :database      = Support basic authentication with authentication key + password
@@ -137,6 +134,7 @@ Devise.setup do |config|
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
+
 
   config.stretches = Rails.env.test? ? 1 : 12
 

@@ -5,6 +5,10 @@
   %br/
   価格#{f.number_field :price, required: true}
   %br/
+  カテゴリー#{f.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select",required: true }}
+  %i.fa.fa-chevron-down
+  .product_select-children
+  %br/
   ブランド名#{f.select :brand_id, Product.brand_ids.keys, {prompt:"---"}}
   %br/
   サイズ#{f.select :size, Product.sizes.keys, {prompt:"---"}}
@@ -37,4 +41,5 @@
         = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
         .js-remove 
           削除
+
   = f.submit

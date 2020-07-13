@@ -15,10 +15,11 @@
 |fee|integer(enum)|null: false|
 |prefecture_id(acitve_hash)|integer|null: false|
 
+
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- has_many :categories
+- belongs_to :category
 - has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
 
@@ -32,7 +33,7 @@
 
 
 ### Association
-- belongs_to :product
+- has_many :products
 - has_ancestry
 
 ## brands table
@@ -117,7 +118,7 @@
 - has_many :products, dependent: :destroy
 - has_many :cards, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many :addresses, dependent: :destroy
+- has_one :addresses, dependent: :destroy
 - has_many :likes, dependent: :destroy
 
 ## images table
