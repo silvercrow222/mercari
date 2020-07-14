@@ -5,15 +5,16 @@
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
+|brand_id|integer(enum)|null: false|
 |price|integer|null: false|
 |detail|text||
 |condition|integer(enum)|null: false|
-|size|string||
+|size|integer(enum)||
 |days|integer(enum)|null: false|
 |method|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
-|prefecture_id(acitve_hash)|integer|null: false|
+|buyer_id|integer|null: false|
+|prefecture_id|integer(enum)|null: false|
 
 
 ### Association
@@ -36,14 +37,6 @@
 - has_many :products
 - has_ancestry
 
-## brands table
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :products
 
 ## likes table
 
@@ -61,10 +54,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
-|card_month|integer|null: false|
-|card_year|integer|null: false|
-|security_code|integer|null: false|
+|card_id|integer|null: false|
+|buyer_id|integer|null: false|
 |user_id|references|null: false, foreign_key:true|
 
 ### Association
@@ -124,7 +115,7 @@
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|src|string|null: false|
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
