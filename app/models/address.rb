@@ -4,7 +4,7 @@ class Address < ApplicationRecord
   validates :apartment, presence: true, allow_blank: true
   
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
-  validates :postal_code, {presence: true, format: { with: VALID_POSTAL_CODE }, uniqueness: { case_sensitive: false }}
+  validates :postal_code, {presence: true, format: { with: VALID_POSTAL_CODE }}
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
