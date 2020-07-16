@@ -73,7 +73,7 @@
   .field
     = f.label :"アイコン"
     %br/
-    = f.text_field :icon, autofocus: true, autocomplete: "icon", placeholder: "省略可"
+    = f.file_field :icon, autofocus: true, autocomplete: "icon", placeholder: "省略可"
   %br/
   .actions
     = f.submit "Next"

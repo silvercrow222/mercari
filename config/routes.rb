@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
   root "products#index"
 
+  resources :users, only: :show
+
   resources :products do
     collection do
       get 'category_children', defaults: { format: 'json' }
