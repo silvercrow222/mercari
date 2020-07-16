@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @items = Product.where(buyer_id: nil).includes(:images).order('created_at DESC')
   end
 
   def show
@@ -18,7 +19,6 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @category = Category.all.order("id ASC").limit(13)
-
   end
   
   def create
