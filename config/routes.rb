@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   end
   root "products#index"
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    collection do
+      get 'card'
+      get 'cardCreate'
+    end
+  end
 
   resources :products do
     collection do

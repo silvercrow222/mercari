@@ -1,7 +1,7 @@
 .wrapper
   .LinkList
     .LinkList__main
-      = link_to user_path(current_user), class: 'LinkList__main--list leftActive' do
+      = link_to user_path(current_user), class: 'LinkList__main--list' do
         マイページ
         %span.fas.fa-greater-than.greater
       %p.LinkList__main--list
@@ -33,25 +33,30 @@
       %p.LinkList__config--list 
         発送元、お届け先
         %span.fas.fa-greater-than.greater
-      = link_to card_users_path, class: 'LinkList__config--list' do
+      = link_to card_users_path, class: 'LinkList__config--list leftActive' do
         支払い方法
         %span.fas.fa-greater-than.greater
       = link_to destroy_user_session_path, method: :delete, class: 'LinkList__config--list' do
         ログアウト
         %span.fas.fa-greater-than.greater
-  .UserData
-    .UserData__data
-      .UserData__data--icon 
-      %p.UserData__data--name #{current_user.nickname}
-    .UserData__info
-      .UserData__notice.rightActive
-        %h3 お知らせ
-      .UserData__notice
-        %h3 ニュース
-    .UserData__contents1#notice
-    .UserData__contents1#news
-    .UserData__bought
-      %h3 購入した商品
-    .UserData__contents2
-      .noData
-      %p.noDataText 購入した商品が存在しません
+  .Payment
+    %h3.Payment--top クレジットカード情報入力
+    .Payment__card
+      .Payment__number
+        %h3.Payment__number--top
+          カード番号
+          %span.must 必須
+        %input.Payment__card--form{placeholder: '半角数字のみ'}
+      .Payment__limit
+        %h3.Payment__limit--top
+          有効期限
+          %span.must 必須
+        %input.Payment__card--formhalf{placeholder: '01'} 月
+        %input.Payment__card--formhalf{placeholder: '20'} 年
+      .Payment__cord
+        %h3.Payment__cord--top
+          セキュリティコード
+          %span.must 必須
+        %input.Payment__card--form{placeholder: 'カード背面4桁もしくは3桁の番号'}
+      = link_to user_path(current_user), class: 'Payment__btn btn' do
+        追加する

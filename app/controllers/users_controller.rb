@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+  end
+  def card
+  end
+  def cardCreate
   end
 end

@@ -11,6 +11,23 @@ h3 {
   display: flex;
 }
 
+.btn {
+  color: white;
+  background-color: #3ccace;
+  height: 50px;
+  width: 320px;
+  margin: 24px 126px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 48px;
+  text-decoration: none;
+  transition: opacity 1s;
+  display: block;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 .LinkList {
   width: 280px;
   margin-right: 40px;
@@ -22,7 +39,7 @@ h3 {
       color: #333;
       background-color: white;
       padding: 14px 16px;
-      margin-top: 1px;
+      margin-top: 1.5px;
       font-size: 14px;
       text-decoration: none;
     }
@@ -76,7 +93,7 @@ h3 {
     }
   }
   &__info {
-    height: 60px;
+    height: 50px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -86,7 +103,7 @@ h3 {
   &__notice {
     background-color: #eee;
     width: 50%;
-    line-height: 60px;
+    line-height: 50px;
     display: block;
   }
   &__contents1 {
@@ -105,6 +122,87 @@ h3 {
   &__contents2 {
     background-color: white;
     height: 300px;
+  }
+}
+
+.Payment {
+  width: 700px;
+  &--top {
+    color: #333;
+    background-color: white;
+    height: 50px;
+    margin-bottom: 1.5px;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+  }
+  &__add {
+    background-color: white;
+    height: 150px;
+    padding: 50px 64px;
+    text-align: center;
+    &--top {
+      color: #333;
+      font-weight: bolder;
+      position: relative;
+      left: -80px;
+    }
+    &--pay {
+      padding-right: 15px;
+    }
+    &--border {
+      width: 600px;
+      padding-top: 10px;
+      margin: 0 auto;
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  &__card {
+    color: #333;
+    background-color: white;
+    height: 400px;
+    padding: 40px 64px;
+    font-size: 14px;
+    text-align: center;
+    &--form {
+      height: 48px;
+      width: 324px;
+      padding-left: 16px;
+      margin-top: 8px;
+      border: 1.2px solid #ccc;
+      border-radius: 4px;
+    }
+    &--formhalf {
+      height: 48px;
+      width: 116px;
+      padding-left: 16px;
+      margin: 8px 12px 0 8px;
+      border: 1.2px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  &__number--top {
+    position: relative;
+    left: -115px;
+  }
+  &__limit {
+    margin-right: 20px;
+    &--top {
+      margin-top: 32px;
+      position: relative;
+      left: -112px;
+    }
+  }
+  &__cord--top {
+    margin-top: 32px;
+    position: relative;
+    left: -87px;
+  }
+  &__btn {
+    width: 343px;
+    margin-top: 40px;
+    margin-left: 115px;
   }
 }
 
@@ -136,9 +234,20 @@ h3 {
   top: 70px;
 }
 
+.must {
+  color: white;
+  background-color: #3ccace;
+  padding: 2px 4px;
+  margin-left: 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
 .rightActive {
   background-color: white;
   border-bottom: 2px solid #3ccace;
+  height: 48px;
 }
 
 .leftActive {
