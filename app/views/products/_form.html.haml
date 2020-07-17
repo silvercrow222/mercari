@@ -13,24 +13,6 @@
                 = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   %i.fas.fa-camera
-        -# #image-box
-        -#   #previews
-        -#     - if @product.persisted?
-        -#       - @product.images.each_with_index do |image, i|
-        -#         = image_tag image.src.url, data: { index: i }, width: '100', height: '100'
-        -#   = f.fields_for :images do |i|
-        -#     .js-file_group{ data: { index: i.index } }
-        -#       = i.label :src, class: 'image-icon' do
-        -#         = icon('fas', 'camera', class: 'image-icon')
-        -#         = i.file_field :src, class: 'js-file hidden'
-        -#       %span.js-remove 
-        -#     - if @product.persisted?
-        -#       = i.check_box :_destroy, data: { index: i.index }, class: 'hidden-destroy'
-        -#   - if @product.persisted?
-        -#     .js-file_group{ data: { index: @product.images.count } }
-        -#       = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-        -#       .js-remove 
-        -#         削除
       #description
         %b 商品名
         %span.necessary 必須
@@ -44,7 +26,6 @@
         %b カテゴリー
         %span.necessary 必須
         = f.collection_select :category, @category, :id, :name, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select",required: true }
-        -# %i.fa.fa-chevron-down
         .product_select-children
         %br/
         %b ブランド
