@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
   has_one :address
   
+  mount_uploader :icon, ImageUploader
 end
