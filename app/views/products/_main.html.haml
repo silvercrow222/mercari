@@ -1,0 +1,8 @@
+.main
+  .Product
+    - @items.each do |product|
+      = link_to product_path(product) do
+        = image_tag product.images.first.src.url
+        #{product.name}
+        #{product.price}円
+        
