@@ -89,6 +89,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def create_cards
+    @creditcard = Creditcard.new(cards_params)
+    unless @creditcard.valid?
+      flash.now[:alert] = @creditcard.errors.full_messages
+      render :new_cards and return
+    end
+    @user.build_address(@address.attributes)
+    @user.build_creditcard(@creditcard.attributes)
+    @user.save
+    sign_in(:user, @user)
+  end
+
   protected
 
   def address_params
