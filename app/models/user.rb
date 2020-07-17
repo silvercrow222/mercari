@@ -11,7 +11,9 @@ class User < ApplicationRecord
   validates :family_name, :first_name, :birthday, :nickname, :encrypted_password, presence: true
   validates :profile, presence: true, allow_blank: true
   validates :icon, presence: true, allow_blank: true
-  validates :email, {presence: true, format: { with: VALID_EMAIL }, uniqueness: { case_sensitive: false }}
+  validates :email, format: {with: VALID_EMAIL}, allow_blank: true
+  validates :email, presence: true
+  # validates :email, {presence: true, format: { with: VALID_EMAIL }, uniqueness: { case_sensitive: false }}
   validates :phone, {presence: true, format: { with: VALID_PHONE }, uniqueness: { case_sensitive: false }}
   validates :family_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
   validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
