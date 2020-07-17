@@ -10,7 +10,7 @@
         #{product.name}
   = link_to("出品", new_product_path)
 
-  = link_to 'マイページ', user_path(@user)
+  = link_to 'マイページ', user_path(current_user)
 
 - else
   %h2 ログインしていません
