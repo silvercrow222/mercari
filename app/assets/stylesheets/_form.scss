@@ -1,3 +1,185 @@
-// Place all the styles related to the category controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$color-main: #3ccace;
+$dark-gray: #2f2f2f;
+
+@mixin style($height: 40px) {
+    border: 1px solid #555;
+    border-radius: 3px;
+    display: block;
+    height: $height;
+    width: 640px;
+    margin-top: 8px;
+}
+@mixin separation() {
+    border-bottom: 1px solid #f5f5f5;
+    padding: 20px 0;
+}
+@mixin btn($bColor: #ccc, $color: $dark-gray) {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: $bColor;
+    color: $color;
+    font-weight: bold;
+}
+@mixin column() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin option($bColor: $color-main) {
+    color: #fff;
+    background-color: $bColor;
+    line-height: 15px;
+    text-align: center;
+    font-weight: 5px;
+    border-radius: 2px;
+    font-size: smaller;
+    padding: 2px;
+}
+// main part
+#container {
+    background-color: #f5f5f5;
+    @include column();
+    #logo {
+        padding: 50px;
+    }
+    #main {
+        @include column();
+        width: 640px;
+        padding: 50px;
+        color: $dark-gray;
+        background-color: #fff;
+        font-size: 13px;
+        border-radius: 3px;
+        .necessary {
+            @include option();
+        }
+        .option {
+            @include option(#aaa);
+        }
+        #images{
+            .hidden {
+                display: none;
+            }
+            #image-box-1 {
+                margin-top: 8px;
+                display: grid;
+                grid-template-columns: 120px 120px 120px 120px 120px;
+                grid-template-rows: 150px 150px;
+                grid-gap: 10px;
+                .item-image {
+                    &__operetion {
+                        &--delete {
+                            background-color: $color-main;
+                            border-radius: 2px;
+                            text-align: center;
+                            font-weight: 10px;
+                            color: #fff;
+                        }
+                    }
+                }
+                .item-num-0, #image-box__container {
+                    border: 1px dashed #ccc;
+                    .input-area {
+                        width: 120px;
+                        height: 150px;
+                        text-align: center;
+                        line-height: 150px;
+                    }
+                }
+            }
+        }
+        #description {
+            @include separation();
+            #product_name {
+                @include style();
+            }
+            #product_detail {
+                @include style(200px);
+            }
+        }
+        #about {
+            @include separation();
+            .formBox,
+            #category_select,
+            #child_category,
+            #grandchild_category,
+            #product_condition {
+                @include style();
+            }
+        }
+        #shipping {
+            @include separation();
+            #product_fee,
+            #product_prefecture_id,
+            #product_day,
+            #product_shipping {
+                @include style();
+            }
+        }
+        #pricing {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            #product_price {
+                border: 1px solid #555;
+                border-radius: 3px;
+                height: 40px;
+                width: 250px;
+                margin: 0 2px;
+            }
+        }
+        #btns {
+            margin-top: 50px;
+            @include column();
+            .btn1 {
+                @include btn($color-main, #fff);
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .btn2 {
+                @include btn();
+                display: block;
+                line-height: 40px;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .back {
+                color: #0a98ee;
+                margin-top: 20px;
+            }
+        }
+        .warning {
+            margin-top: 20px;
+            font-size: 10px;
+            span {
+                color: #0a98ee;
+                cursor: pointer;
+            }
+        }
+    }
+    #footer {
+        @include column();
+        margin: 30px 0;
+        .f-btns {
+            margin: 30px;
+            .f-letter {
+                font-size: 12px;
+                color: $dark-gray;
+                margin: 10px;
+            }
+        }
+        .f-logo {
+            background-image: url('gray.png');
+            background-size: cover;
+            width: 43px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .author {
+            font-size: 10px;
+        }
+    }
+}
