@@ -2,12 +2,12 @@
   .header-box
     .header-box__sign-up
       %h1.header-box__sign-up__logo
-        =link_to image_tag("logo/logo.png",width:"134",height:"36"), root_path  
+        =link_to image_tag("logo.png",width:"134",height:"36"), root_path  
       %nav.header-box__sign-up__box
         %ol
           %li.header-box__sign-up__box__text--active{ id: "first" }
             会員情報
-            .header-box__sign-up__box__round--red
+            .header-box__sign-up__box__round--green
           %li.header-box__sign-up__box__text
             お届け先住所入力
             .header-box__sign-up__box__round 
@@ -157,17 +157,19 @@
               = f.label :"生年月日"
               %span.caution 必須
               %br/
-              = raw sprintf(f.date_select(:birthday, start_year: 1920, end_year: Time.now.year, class: 'required',  prompt:"--", :use_month_numbers => true, :date_separator => '%s'),'年','月')+ '日' 
-            - if @user.errors.any?
-              .error_explanation
-                %h2
-                  - I18n.t("errors.messages.not_saved",                 |
-                    count: resource.errors.count,                       |
-                    resource: resource.class.model_name.human.downcase) |
-                %ul.error-messages
-                  - @user.errors.full_messages_for(:birthday).each do |message|
-                    %li{style: "color:red"}
-                      = message
+              .chgange
+                = raw sprintf(f.date_select(:birthday, start_year: 1920, end_year: Time.now.year, class: 'required',  prompt:"--", :use_month_numbers => true, :date_separator => '%s'),'年','月')+ '日' 
+              - if @user.errors.any?
+                .error_explanation
+                  %br
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul.error-messages
+                    - @user.errors.full_messages_for(:birthday).each do |message|
+                      %li{style: "color:red"}
+                        = message
             .field
               = f.label :"電話番号"
               %span.caution 必須
@@ -216,7 +218,7 @@
       %li.footer_box__one__list__detail
         = link_to '特定商取引に関する表記', "#", class: 'policy'
   .footer-box__two
-  .footes-box__three
+  .footer-box__three
     © Mercari, Inc.
 
 

@@ -18,7 +18,14 @@ ja:
         city: "市区町村"
         address: "番地"
         building: "マンション名など"
-        phone_number: "電話番号"
+        phone: "電話番号"
+      address:
+        postal_code: "郵便番号"
+        prefectures: "都道府県"
+        city: "市区町村"
+        block: "番地"
+        building: "マンション名など"
+        phone: "電話番号"
     models:
       user: "ユーザ"
       profileaddress: "ご本人様情報入力（任意）"
