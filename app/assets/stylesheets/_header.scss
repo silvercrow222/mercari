@@ -1,0 +1,27 @@
+* {
+  box-sizing: border;
+}
+
+.Header {
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__top {
+    width: 1020px;
+    margin: 8px auto 0;
+    &--logo {
+      height: 36px;
+      width: 134px;
+      margin-right: 45px;
+    }
+    &--search {
+      height: 28px;
+      width: 521px;
+    }
+  }
+  & bottom {
+
+  }
+}

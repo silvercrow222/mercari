@@ -1,0 +1,20 @@
+.Header
+  .Header__top
+    = image_tag 'gray.png', class: 'Header__top--logo'
+    %input.Header__top--search 
+      %span.fas.fa-search
+  .Header__bottom
+    .Header__left
+      .Header__category
+        = image_tag 'icon_category.png'
+        %p カテゴリーから探す
+      .Header__bland
+        = image_tag 'icon_brand.png'
+        %p ブランドから探す
+    .Header__right
+      .Header__notice
+        %p
+          %span.far.fa-bell
+          お知らせ
+      .Header__mypage
+        = image_tag 'icon.png'
