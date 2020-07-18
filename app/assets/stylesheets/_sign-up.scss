@@ -80,7 +80,14 @@
           margin: 8px auto 0;
           border-radius: 50%;
         }
-        &--green-two{
+        &--green-two,{
+          background: #3ccace;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+        }
+        &--green-last,{
           background: #3ccace;
           width: 12px;
           height: 12px;
@@ -88,6 +95,13 @@
           border-radius: 50%;
         }
         &--start{
+          background: #3ccace;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+        }
+        &__last{
           background: #3ccace;
           width: 12px;
           height: 12px;
@@ -170,7 +184,17 @@
     height: 2px;
     background: #ccc;
   }
-
+  .header-box__sign-up__box__round--green-last::after {
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+  }
   .header-box__sign-up__box__round__end::before {
     right: 50%;
     position: absolute;
@@ -182,6 +206,85 @@
     height: 2px;
     background: #ccc;
   }
+  .header-box__sign-up__box__round__last::before {
+    right: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 80%;
+    height: 2px;
+    background: #3ccace;
+  }
+/* li ナビの棒3 */  
+.header-box__sign-up__box__round--green-last::before {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 80%;
+  height: 2px;
+  background: #3ccace;
+}
+
+// .header-box__sign-up__box__round--start::after {
+//   left: 50%;
+//   position: absolute;
+//   bottom: 5px;
+//   z-index: -1;
+//   display: block;
+//   content: '';
+//   width: 100%;
+//   height: 2px;
+//   background: #3ccace;
+// }
+.header-box__sign-up__box__round--green-last::after {
+  left: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #3ccace;
+}
+// .header-box__sign-up__box__round--green-last::after {
+//   left: 50%;
+//   position: absolute;
+//   bottom: 5px;
+//   z-index: -1;
+//   display: block;
+//   content: '';
+//   width: 100%;
+//   height: 2px;
+//   background: #ccc;
+// }
+.header-box__sign-up__box__round__end::before {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 80%;
+  height: 2px;
+  background: #ccc;
+}
+.header-box__sign-up__box__round__last::before {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 80%;
+  height: 2px;
+  background: #3ccace;
+}
 
   .main {
     width: 100%;
