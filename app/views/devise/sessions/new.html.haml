@@ -15,11 +15,9 @@
         .main__box__container__two-dash__in
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .field-dash
-              -# = f.label :email
               %br/
               = f.email_field :email, class: 'form-dash-log', autofocus: true, autocomplete: "email" , placeholder: "メールアドレス"
             .field-dash
-              -# = f.label :password
               %br/
               = f.password_field :password, class: 'form-dash-log', autocomplete: "current-password", placeholder: "パスワード"
             - if devise_mapping.rememberable?
@@ -30,8 +28,6 @@
             .actions
               = f.submit "ログイン", class: 'log-btn'
             = link_to 'パスワードをお忘れの方', "#", class: 'message-box__dash'
-            -# .message-box__in パスワードをお忘れの方
-        -# = render "devise/shared/links"
 
 .footer-box
   .footer-box__one

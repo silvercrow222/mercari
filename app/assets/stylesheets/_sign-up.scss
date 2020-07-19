@@ -36,7 +36,6 @@
   /* ヘッダーナビ部分 */
     &__box{
       padding: 30px 0 0 44px;
-      // width: 583px;
       box-sizing: border-box;
       display: flex;
 
@@ -576,13 +575,9 @@
 
 .footer-box {
   width: 100%;
-  // height: 140px;
   &__one {
-    // height:300px;
     width: 456px;
     margin: 0 auto;
-    // text-align: center;
-    // background-color: white;
     &__list {
       display: flex;
       padding: 40px 0 0 30px;
@@ -629,15 +624,7 @@
     height: 50px;
     padding: 40px 0 0 170px;
     margin: 0 auto;
-  // &--box{
-  //   width: 185px;
-  //   padding: 40px 0 0 0;
-  //   margin: 0 auto;
-  //   }
     &a, img{
-      // margin-top: -40px;
-      // height: 49px;
-      // line-height: 49px;
       margin: 0 auto;
     }
   }
@@ -691,11 +678,6 @@ text-align: center;
   border-radius: 4px;
   font-size: 14px;
 }
-
-// .new-user {
-//   text-align:center;
-//   margin:0 auto;
-// }
 .actions {
   text-align: center;
 }
