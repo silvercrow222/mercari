@@ -15,13 +15,14 @@
             完了
             .header-box__sign-up__box__round__last
 %body.sign
-
   .main
     .main__box
       .main__box__container__one
-        %h2 登録が完了しました
+        %h2.main__box__h2 登録が完了しました
         %br
-        = link_to "トップへ戻る", root_path
+      .main__box__container__two
+        .back
+          = link_to("トップへ戻る", root_path, {class: "back-home"})
 
 
 .footer-box
