@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+  before_action :set_card, only:[:destroy, :show]
   require "payjp"
 
   def new
@@ -26,8 +26,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if card.present?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -38,9 +37,14 @@ class CardsController < ApplicationController
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  private
+
+  def set_card
+    card = Card.where(user_id: current_user.id).first
   end
 end
