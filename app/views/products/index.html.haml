@@ -1,4 +1,6 @@
 %h1 トップページ
+= render partial: 'main'
+
 %br
 
 - if user_signed_in?
@@ -12,7 +14,7 @@
 
   %h2 ログインしています
   = link_to 'ログアウト', destroy_user_session_path, method: :delete
-  = link_to 'マイページ', mypages_url
+  = link_to 'マイページ', user_path(current_user)
 
 - else
   %h2 ログインしていません

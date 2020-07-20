@@ -1,0 +1,49 @@
+.wrapper
+  .LinkList
+    .LinkList__main
+      = link_to user_path(current_user), class: 'LinkList__main--list' do
+        マイページ
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list
+        お知らせ
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        ニュース
+        %span.fas.fa-greater-than.greater
+      = link_to new_product_path, class: 'LinkList__main--list' do
+        出品する
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        出品した商品
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        購入した商品
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        ガイド
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        お問い合わせ
+        %span.fas.fa-greater-than.greater
+    .LinkList__config
+      %h3.LinkList__config--top 設定
+      %p.LinkList__config--list 
+        プロフィール
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__config--list 
+        発送元、お届け先
+        %span.fas.fa-greater-than.greater
+      = link_to card_users_path, class: 'LinkList__config--list leftActive' do
+        支払い方法
+        %span.fas.fa-greater-than.greater
+      = link_to destroy_user_session_path, method: :delete, class: 'LinkList__config--list' do
+        ログアウト
+        %span.fas.fa-greater-than.greater
+  .Payment
+    %h3.Payment--top 支払い方法
+    .Payment__add
+      %h3.Payment__add--top クレジットカード一覧
+      = link_to cardCreate_users_path, class: 'Payment__add--btn btn' do
+        %span.fas.fa-credit-card.Payment__add--pay
+        クレジットカードを追加する
+      .Payment__add--border

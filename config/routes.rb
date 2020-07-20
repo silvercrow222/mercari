@@ -29,4 +29,22 @@ Rails.application.routes.draw do
   end
   resources :mypages, only: [:index] do
   end
+
+  resources :users, only: :show do
+    collection do
+      get 'card'
+      get 'cardCreate'
+    end
+  end
+
+  resources :products do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end

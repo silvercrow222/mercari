@@ -21,7 +21,11 @@
           %th
             カテゴリー
           %td
-            = "sport"
+            = @parent.name
+            %br
+            = @child.name
+            %br
+            = @grandchild.name
         %tr
           %th
             ブランド
@@ -87,3 +91,4 @@
       %button.comment_btn
         %span
           コメントする
+          
