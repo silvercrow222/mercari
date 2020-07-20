@@ -21,13 +21,13 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-  resources :purchase, only: [:show] do
+  resources :purchase, only: :show do
     member do
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
   end
-  resources :mypages, only: [:index] do
+  resources :mypages, only: :index do
   end
 
   resources :users, only: :show do
