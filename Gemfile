@@ -81,3 +81,6 @@ gem 'fog-aws'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
+gem 'payjp'
+gem 'fog-aws'
+

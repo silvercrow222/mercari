@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @items = Product.where(buyer_id: nil).includes(:images).order('created_at DESC')
   end
 
   def show
@@ -18,7 +19,6 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @category = Category.all.order("id ASC").limit(13)
-
   end
   
   def create
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @category = Category.all.order("id ASC").limit(13)
   end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find(params[:productcategory]).children
   end
-    
+
   def update
     if @product.update(product_params)
       redirect_to products_path, notice: '更新されました'

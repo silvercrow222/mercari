@@ -1,0 +1,62 @@
+.wrapper
+  .LinkList
+    .LinkList__main
+      = link_to user_path(current_user), class: 'LinkList__main--list' do
+        マイページ
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list
+        お知らせ
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        ニュース
+        %span.fas.fa-greater-than.greater
+      = link_to new_product_path, class: 'LinkList__main--list' do
+        出品する
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        出品した商品
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        購入した商品
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        ガイド
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__main--list 
+        お問い合わせ
+        %span.fas.fa-greater-than.greater
+    .LinkList__config
+      %h3.LinkList__config--top 設定
+      %p.LinkList__config--list 
+        プロフィール
+        %span.fas.fa-greater-than.greater
+      %p.LinkList__config--list 
+        発送元、お届け先
+        %span.fas.fa-greater-than.greater
+      = link_to card_users_path, class: 'LinkList__config--list leftActive' do
+        支払い方法
+        %span.fas.fa-greater-than.greater
+      = link_to destroy_user_session_path, method: :delete, class: 'LinkList__config--list' do
+        ログアウト
+        %span.fas.fa-greater-than.greater
+  .Payment
+    %h3.Payment--top クレジットカード情報入力
+    .Payment__card
+      .Payment__number
+        %h3.Payment__number--top
+          カード番号
+          %span.must 必須
+        %input.Payment__card--form{placeholder: '半角数字のみ'}
+      .Payment__limit
+        %h3.Payment__limit--top
+          有効期限
+          %span.must 必須
+        %input.Payment__card--formhalf{placeholder: '01'} 月
+        %input.Payment__card--formhalf{placeholder: '20'} 年
+      .Payment__cord
+        %h3.Payment__cord--top
+          セキュリティコード
+          %span.must 必須
+        %input.Payment__card--form{placeholder: 'カード背面4桁もしくは3桁の番号'}
+      = link_to user_path(current_user), class: 'Payment__btn btn' do
+        追加する
