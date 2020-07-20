@@ -2,7 +2,7 @@
   .header-box
     .header-box__sign-up
       %h1.header-box__sign-up__logo
-        =link_to image_tag("logo.png",width:"134",height:"36"), root_path  
+        =link_to image_tag("logo.png",width:"185",height:"49"), root_path  
       %nav.header-box__sign-up__box
         %ol
           %li.header-box__sign-up__box__text
@@ -85,7 +85,7 @@
                       %li{style: "color:red"}
                         = message
             .field
-              = f.label :"アパート号室"
+              = f.label :"アパート号室(省略可)"
               %br/
               = f.text_field :apartment, class: 'form', placeholder: "省略可"
               %br

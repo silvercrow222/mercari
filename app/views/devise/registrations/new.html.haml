@@ -2,7 +2,7 @@
   .header-box
     .header-box__sign-up
       %h1.header-box__sign-up__logo
-        =link_to image_tag("logo.png",width:"134",height:"36"), root_path  
+        =link_to image_tag("logo.png",width:"185",height:"49"), root_path  
       %nav.header-box__sign-up__box
         %ol
           %li.header-box__sign-up__box__text--active{ id: "first" }
@@ -181,14 +181,16 @@
                   - @user.errors.full_messages_for(:phone).each do |message|
                     %li{style: "color:red"}
                       = message
+
             .field
-              = f.label :"プロフィール"
+              = f.label :"プロフィール(省略可)"
               %br/
               = f.text_field :profile, class: 'form', autofocus: true, autocomplete: " profile", placeholder: "省略可"
-            .field
-              = f.label :"アイコン"
-              %br/
-              = f.text_field :icon, class: 'form', autofocus: true, autocomplete: "icon", placeholder: "省略可"
+            .file-box
+              .field
+                = f.label :"アイコン(省略可)"
+                = f.file_field:icon
+                %br/
             .label-box
               %label.gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .actions
