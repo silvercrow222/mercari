@@ -74,14 +74,14 @@ h3 {
   width: 700px;
   &__data {
     background-color: #ddd;
-    background-image: url("back.jpg");
+    background-image: image-url("back.jpg");
     background-size: cover;
     height: 140px;
     padding: 20px;
     text-align: center;
     &--icon {
       background-color: #eee;
-      background-image: url("icon.png");
+      background-image: image-url("icon.png");
       background-size: 85px 85px;
       width: 80px;
       height: 80px;
@@ -217,7 +217,7 @@ h3 {
 }
 
 .noData {
-  background-image: url('gray.png');
+  background-image: image-url('gray.png');
   background-size: 400px, 100px;
   width: 100px;
   height: 115px;
