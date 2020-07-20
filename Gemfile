@@ -77,4 +77,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'active_hash'
+gem 'payjp'
 gem 'fog-aws'
+
