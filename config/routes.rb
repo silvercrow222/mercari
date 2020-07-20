@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   end
   root "products#index"
 
-  resources :products
-
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
