@@ -11,14 +11,106 @@
       background-color:white;
     }
   }
-  &__title {
-    width: 620px;
-    height: 33px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+    &__title {
+      width: 620px;
+      // height: 33px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+    &__detail {
+      width: 620px;
+      font-size: 14px;
+      color: #888888;
+      margin: 8px 0 0;
+    }
+    &__content {
+      width: 620px;
+      margin: 16px 0 0;
+      display: flex;
+    }
+    &__imageBox {
+      width: 300px;
+      &--main {
+        // width: 300px;
+        // height: 300px;
+        min-width: 300px;
+        min-height: 375px;
+        background-color: #fafafa;
+      }
+      &--sub {
+        padding: 0 0 10px;
+        // background-color: gray;
+        // min-width: 300px;
+        // min-height: 375px;
+      }
+    }
+  &__tableBox {
+    width: 286px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    font-size: inherit;
+
   }
-  &__detail {
+  .word {
+    width: 99px;
+    padding: 8px;
+    background-color: #fafafa;
+    border: 1px solid #f5f5f5;
+    color:#333333;
+    font-size: 14px;
+  }
+  .sky {
+    color:#0099E8;
+  }
+  .gray {
+    color:#333333;
+  }
+  .info {
+    width: 164px;
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    color: #333333;
+    font-size: 14px;
+  }
+  .info__sky {
+    width: 164px;
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    color: #0099E8;
+    font-size: 14px;
+  }
+  &__price {
     width: 620px;
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+  }
+  .tax {
+    font-size: 10px;
+    font-weight: normal;
+  }
+  .fee {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  #buy-button {
+    width: 620px;
+    height: 60px;
+    margin: 24px 0 32px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    background-color: #3ccace;
+    a.buybtn {
+      text-decoration: none;
+      align-items: center;
+      color: white;
+    }
+  }
+  .exhibitor-comment {
+    font-size: 18px;
   }
 }

@@ -10,63 +10,76 @@
         = @product.name
       %p.ProductShow__detail
         = @product.detail
-      %div.product-image
-        - @product.images.each do |image|
-          = image_tag "#{image.src.url}"
-      %table.product-dateil
-        %tbody
-          %tr
-            %th
-              出品者
-            %td
-              = @product.user.nickname
-          %tr
-            %th
-              カテゴリー
-            %td
-              = @parent.name
-              %br
-              = @child.name
-              %br
-              = @grandchild.name
-          %tr
-            %th
-              ブランド
-            %td
-              = @product.brand_id
-          %tr
-            %th
-              商品サイズ
-            %td
-              = @product.size
-          %tr
-            %th
-              商品の状態
-            %td
-              = @product.condition
-          %tr
-            %th
-              配送料負担
-            %td
-              = @product.fee
-          %tr
-            %th
-              発送方法
-            %td
-              = @product.shipping
-          %tr
-            %th
-              配送元地域
-            %td
-              = @product.prefecture_id
-          %tr
-            %th
-              発送日の目安
-            %td
-              = @product.day
-          %tr
-      .product-price
-        =  "#{@product.price}円"
+      -# %div.product-image
+
+      .ProductShow__content
+        .ProductShow__imageBox
+          .ProductShow__imageBox--main
+            - @product.images.each do |image|
+              = image_tag "#{image.src.url}"
+          .ProductShow__imageBox--sub
+          -# - @product.images.each do |image|
+          -#   = image_tag "#{image.src.url}"
+        %table.ProductShow__tableBox
+          %tbody
+            %tr
+              %th.word
+                出品者
+              %td.info__sky
+                = @product.user.nickname
+                %br
+                %span.gray 40 0
+            %tr
+              %th.word
+                カテゴリー
+              %td.info__sky
+                = @parent.name
+                %br
+                >
+                = @child.name
+                %br
+                >
+                = @grandchild.name
+            %tr
+              %th.word
+                ブランド
+              %td.info__sky
+                = @product.brand_id
+            %tr
+              %th.word
+                商品サイズ
+              %td.info
+                = @product.size
+            %tr
+              %th.word
+                商品の状態
+              %td.info
+                = @product.condition
+            %tr
+              %th.word
+                配送料負担
+              %td.info
+                = @product.fee
+            %tr
+              %th.word
+                発送方法
+              %td.info
+                = @product.shipping
+            %tr
+              %th.word
+                配送元地域
+              %td.info
+                = @product.prefecture_id
+            %tr
+              %th.word
+                発送日の目安
+              %td.info
+                = @product.day
+            %tr
+      .ProductShow__price
+        =  "¥#{@product.price}"
+        %span.tax (税込み)
+        %span.fee 送料込み
       .more-list
         - if user_signed_in? && current_user.id == @product.user_id
           = link_to '商品の編集', edit_product_path(@product.id)
@@ -78,15 +91,10 @@
           = link_to '売り切れました', products_path
         - else
           %div#buy-button
-            = link_to "購入画面に進む", purchase_path(@product.id)
+            = link_to "購入画面に進む", purchase_path(@product.id),{class: 'buybtn'}
           .exhibitor-comment
-          test
-          test
-          test
-          test
-          test
-          test
-          test
+            ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。
+          %br
         %form.comment{:action => "", :method => "get"}
           %p.attention
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
