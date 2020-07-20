@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'mypages/index'
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -10,4 +13,20 @@ Rails.application.routes.draw do
   root "products#index"
 
   resources :products
+
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'show', to: 'cards#show'
+      post 'delete', to: 'card#delete'
+    end
+  end
+  resources :purchase, only: [:show] do
+    member do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
+  resources :mypages, only: [:index] do
+  end
 end

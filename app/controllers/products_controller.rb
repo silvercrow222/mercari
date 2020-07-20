@@ -24,8 +24,10 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
   def edit
   end
+
   def update
     if @product.update(product_params)
       redirect_to products_path, notice: '更新されました'
@@ -33,6 +35,7 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  
   def destroy
     if @product.destroy
       redirect_to products_path, notice: '削除されました'
