@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: :new
     else
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 
   def destroy
     if card.present?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -36,7 +36,7 @@ class CardsController < ApplicationController
   end
 
   def show
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
   end
