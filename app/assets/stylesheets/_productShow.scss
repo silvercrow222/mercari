@@ -1,0 +1,24 @@
+.ProductShow {
+  &__container {
+    background-color: rgb(245, 245, 245);
+    padding: 40px 0;
+    width: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    &--one {
+      margin: 0 auto;
+      padding: 24px 40px 40px;
+      width:620px;
+      background-color:white;
+    }
+  }
+  &__title {
+    width: 620px;
+    height: 33px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__detail {
+    width: 620px;
+  }
+}
