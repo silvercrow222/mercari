@@ -31,26 +31,32 @@
     }
     &__imageBox {
       width: 300px;
+      min-height: 375px;
       &--main {
-        // width: 300px;
-        // height: 300px;
-        min-width: 300px;
-        min-height: 375px;
         background-color: #fafafa;
       }
-      &--sub {
-        padding: 0 0 10px;
-        // background-color: gray;
-        // min-width: 300px;
-        // min-height: 375px;
+    &__imageBoxs {
+      background-color: #fafafa;
+      width: 300px;
+      display: flex;
+      .photo {
+        width: 60px;
+        height: 60px;
+        display: none;
+      }
+      .photoActive {
+        width: 60px;
+        height: 60px;
+        display: block;
+        // display: inline-block;
       }
     }
+  }
   &__tableBox {
     width: 286px;
     margin: 0 0 0 20px;
     padding: 8px;
     font-size: inherit;
-
   }
   .word {
     width: 99px;
@@ -129,22 +135,38 @@
     .comment {
       margin: 20px 0 10px;
       padding: 8px;
-      background-color: rgb(252, 235, 213);
-      font-size: 15px;
+      background-color: #fff6de;
+      font-size: 14px;
       color: #333333;
       &__text {
         width: 598px;
         height: 100px;
         padding: 10px;
-        border: 1px solid #888888;
+        border: 1px solid #ccc;
       }
       &__btn {
         width: 620px;
         height: 50px;
-        background-color: gray;
+        background-color: #aaa;
+        border: 1px solid #aaa;
         border-radius: 4px;
         margin: 8px 0;
         color: white;
+      }
+    }
+  }
+  .NearFooter {
+    border-top: 1px solid #eee;
+    width: 100%;
+    // display: flex;
+    &__line {
+      width: 620px;
+      margin: 0 auto;
+      &__list {
+        font-size: 14px;
+        .name {
+          font-weight: bold;
+        }
       }
     }
   }

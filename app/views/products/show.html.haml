@@ -10,14 +10,22 @@
         = @product.name
       %p.ProductShow__detail
         = @product.detail
-      -# %div.product-image
-
       .ProductShow__content
         .ProductShow__imageBox
           .ProductShow__imageBox--main
-            - @product.images.each do |image|
-              = image_tag "#{image.src.url}"
-          .ProductShow__imageBox--sub
+            =image_tag("iron.jpg",width:"300",height:"300")
+          .ProductShow__imageBoxs
+            .photoActive
+              =image_tag("iron.jpg",width:"60",height:"60")
+            .photo
+              =image_tag("logo.png",width:"60",height:"60")
+            .photo
+              =image_tag("logo.png",width:"60",height:"60")
+            .photo
+              =image_tag("logo.png",width:"60",height:"60")
+            .photo
+              =image_tag("logo.png",width:"60",height:"60")
+
           -# - @product.images.each do |image|
           -#   = image_tag "#{image.src.url}"
         %table.ProductShow__tableBox
@@ -96,13 +104,18 @@
             ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。
           %br
           %p.safety あんしん・あんぜんへの取り組み
-
-    .ProductShow__commentbox
-      %form.comment{:action => "", :method => "get"}
-        %p.attention
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.comment__text
-      %button.comment__btn
-        %span
-          コメントする
+    - if user_signed_in?
+      .ProductShow__commentbox
+        %form.comment{:action => "", :method => "get"}
+          %p.attention
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment__text
+        %button.comment__btn
+          %span
+            コメントする
               
+    .NearFooter
+      .NearFooter__line
+        .NearFooter__list
+          フリマ＞
+          %span.name= @product.name
