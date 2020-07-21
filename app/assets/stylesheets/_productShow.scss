@@ -7,7 +7,7 @@
     &--one {
       margin: 0 auto;
       padding: 24px 40px 40px;
-      width: 620px;
+      width: 700px;
       background-color: white;
     }
   }
@@ -99,8 +99,11 @@
     font-size: 24px;
     align-items: center;
     background-color: #3ccace;
+    transition: opacity 1s;
     display: flex;
-
+    &:hover {
+      opacity: 0.5;
+    }
     a.buybtn {
       text-decoration: none;
       margin: 0 auto;
