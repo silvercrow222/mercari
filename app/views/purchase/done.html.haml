@@ -1,5 +1,15 @@
-%h2 購入が完了しました！
-%p 
-= @product.name
-%p 
-= @product.price
+.transaction-done
+  .transaction-done__head
+  .transaction-done__content
+    .transaction-done__text
+      購入が完了しました！
+    .transaction-done__image
+      = image_tag "200px-Carandini.jpg", alt:"商品画像", class: "transaction-done__image--img"
+    .transaction-done__title
+      = @product.name
+    .transaction-done__price
+      .transaction-done__price--text
+        = @product.price
+      .transaction-done__price--info
+        (送料込み)
+  .transaction-done__foot
