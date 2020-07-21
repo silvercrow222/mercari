@@ -28,7 +28,7 @@
               %td.info__sky
                 = @product.user.nickname
                 %br
-                %span.gray 40 0
+                -# %span.gray 40 0
             %tr
               %th.word
                 カテゴリー
@@ -95,11 +95,14 @@
           .exhibitor-comment
             ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。
           %br
-        %form.comment{:action => "", :method => "get"}
-          %p.attention
-            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %textarea.comment_text
-        %button.comment_btn
-          %span
-            コメントする
-            
+          %p.safety あんしん・あんぜんへの取り組み
+
+    .ProductShow__commentbox
+      %form.comment{:action => "", :method => "get"}
+        %p.attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.comment__text
+      %button.comment__btn
+        %span
+          コメントする
+              
