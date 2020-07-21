@@ -161,7 +161,7 @@ h3 {
   &__card {
     color: #333;
     background-color: white;
-    height: 400px;
+    height: 450px;
     padding: 40px 64px;
     font-size: 14px;
     text-align: center;
@@ -201,8 +201,8 @@ h3 {
   }
   &__btn {
     width: 343px;
-    margin-top: 40px;
-    margin-left: 115px;
+    margin: 40px 0 0 115px;
+    border: none;
   }
 }
 
@@ -242,6 +242,16 @@ h3 {
   border-radius: 2px;
   font-size: 12px;
   font-weight: normal;
+}
+
+.signup-card-list {
+  display: flex;
+  justify-content: center;
+}
+.signup-card-list li {
+  margin: 6px;
+  position: relative;
+  left: -20px;
 }
 
 .rightActive {
