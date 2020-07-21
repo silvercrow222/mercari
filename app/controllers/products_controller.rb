@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
       @product.images.new
       @category = Category.all.order("id ASC").limit(13)
     else
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
   
