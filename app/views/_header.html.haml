@@ -17,6 +17,7 @@
       .Header__notice
         %i.far.fa-bell.Header__notice--icon
         %p.Header__notice--text お知らせ
-      .Header__mypage
-        = image_tag 'icon.png', class: 'Header__mypage--icon'
-        = link_to 'マイページ', user_path(current_user), class: 'Header__mypage--text'
+      - if user_signed_in?
+        .Header__mypage
+          = image_tag 'icon.png', class: 'Header__mypage--icon'
+          = link_to 'マイページ', user_path(current_user), class: 'Header__mypage--text'

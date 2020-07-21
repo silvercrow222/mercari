@@ -2,24 +2,25 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-.h2{
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-.ul{
-  list-style: none;
-}
-p{
-  font-size: 10px;
-  text-align: left;
-}
-.Main{
+
+.TopMain{
   background: #f8f8f8;
+  .h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  .ul{
+    list-style: none;
+  }
+  p{
+    font-size: 10px;
+    text-align: left;
+  }
 }
 .Top{
   width: 100%;
@@ -78,14 +79,14 @@ p{
   }
   
 }
-.lists{
+.Lists{
   max-width: 1020px;
   text-align: center;
   width: 100%;
   margin: 0 auto;
   display: flex;
 }
-.list{
+.List{
   width: 30%;
   margin: 16px 5% 0 0;
   display: flex;
@@ -157,39 +158,39 @@ p{
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
-
   }
-}
-.Icons{
-  max-width: calc(1040px + 20px);
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-.Icon{
-  display: flex;
-  flex-direction: column;
-  width: calc(1 / 3 * 100%);
-  text-align: center;
-  padding: 0 20px;
-  &__image{
-    width: 70%;
+  &__Icons{
+    max-width: calc(1040px + 20px);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
-    line-height: 120px;
   }
-  &__title{
-    margin: 38px 0 10px;
-    font-size: 19px;
-    font-weight: bold;
-  }
-  &__text{
-    margin: 0 0 40px;
-    font-size: 17px;
-    font-weight: 200;
-    text-align: left;
+  &__Icon{
+    display: flex;
+    flex-direction: column;
+    width: calc(1 / 3 * 100%);
+    text-align: center;
+    padding: 0 20px;
+    &--image{
+      width: 70%;
+      margin: 0 auto;
+      line-height: 120px;
+    }
+    &--title{
+      margin: 38px 0 10px;
+      font-size: 19px;
+      font-weight: bold;
+    }
+    &--text{
+      margin: 0 0 40px;
+      font-size: 17px;
+      font-weight: 200;
+      text-align: left;
+    }
   }
 }
+
 .Pickup{
   padding: 80px 0 0;
   background-color: #f8f8f8;
