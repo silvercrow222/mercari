@@ -17,9 +17,13 @@ class ProductsController < ApplicationController
   end
   
   def new
-    @product = Product.new
-    @product.images.new
-    @category = Category.all.order("id ASC").limit(13)
+    if user_signed_in?
+      @product = Product.new
+      @product.images.new
+      @category = Category.all.order("id ASC").limit(13)
+    else
+      redirect_to new_user_registration_path
+    end
   end
   
   def create

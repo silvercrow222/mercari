@@ -21,3 +21,7 @@
         .Header__mypage
           = image_tag 'icon.png', class: 'Header__mypage--icon'
           = link_to 'マイページ', user_path(current_user), class: 'Header__mypage--text'
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'Header__mypage--text'
+      - else
+        = link_to '新規登録', new_user_registration_path, class: 'Header__mypage--text'
+        = link_to 'ログイン', new_user_session_path, class: 'Header__mypage--text'

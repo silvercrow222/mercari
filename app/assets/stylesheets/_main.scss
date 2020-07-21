@@ -2,25 +2,11 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-
+.aoiro{
+  color: #3CCACE;
+}
 .TopMain{
   background: #f8f8f8;
-  .h2{
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-  }
-  .ul{
-    list-style: none;
-  }
-  p{
-    font-size: 10px;
-    text-align: left;
-  }
 }
 .Top{
   width: 100%;
@@ -32,6 +18,21 @@
   padding: 0 60px;
   display: flex;
   align-items: center;
+}
+.Button{
+  display: flex;
+  margin-top: 20px;
+  &__apple {
+    margin-right: 10px;
+  }
+  &__apple:hover {
+    opacity: .6;
+    cursor: pointer;
+  }
+  &__google:hover {
+    opacity: .6;
+    cursor: pointer;
+  }
 }
 .Line{
   content: "";
@@ -55,6 +56,7 @@
     font-size: 60px;
     line-height: 1.2;
     color: #fff;
+    font-weight: normal;
   }
   &__text{
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -76,8 +78,17 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+    
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
   }
-  
+
 }
 .Lists{
   max-width: 1020px;
@@ -93,6 +104,7 @@
   flex-direction: column;
   text-align: left;
   align-items: center;
+  background-color: white;
   &__image{
     margin-bottom: 20px;
     position: relative;
@@ -115,11 +127,14 @@
     font-size: 24px;
     line-height: 50px;
     margin: 0 0 0 2px;
+    
   }
   &__comment{
     font-size: 18px;
     line-height: 1.5;
     margin: 16px 0 0;
+    text-align: left;
+  
   }
 }
 .Center{
@@ -140,6 +155,14 @@
   &__title{
     font-size: 27px;
     font-weight: bold;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
   }
   &__text{
     font-size: 18px;
@@ -158,6 +181,13 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
   }
   &__Icons{
     max-width: calc(1040px + 20px);
@@ -193,6 +223,7 @@
 
 .Pickup{
   padding: 80px 0 0;
+  padding-bottom: 80px;
   background-color: #f8f8f8;
   height: 100%;
   display: block;
@@ -201,6 +232,11 @@
     font-size: 28px;
     line-height: 1.4;
     font-weight: bold;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
 }
 
@@ -218,7 +254,7 @@
     width: 220px;
     display: inline-block;
     float: left;
-  }
+   }
   &__image{
     width: 220px;
     height: 150px;
@@ -239,6 +275,10 @@
     }
     &--price{
       font-size: 16px;
+      text-align: left;
+      p{
+        font-size: 12px;
+      }
     }
   }
 }

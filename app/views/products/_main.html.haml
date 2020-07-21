@@ -9,7 +9,10 @@
         %br
         フリマアプリです
       .Button
-        
+        .Button__apple
+          = image_tag("apple.png", width: 180)
+        .Button__google
+          = image_tag("google.png", width: 180)
   .Middle
     %h2.Middle__comment
       FURIMAが選ばれる3つの理由
@@ -20,7 +23,8 @@
           = image_tag 'pict-reason-01.jpg', width: '100%'
           %span.List__number 1
         %h3.List__text
-          %span 3分
+          %span.aoiro
+            3分
           ですぐに出品
         %p.List__comment
           スマホに入力するだけで簡単に出品できる！
@@ -29,7 +33,8 @@
           = image_tag 'pict-reason-02.jpg', width: '100%'
           %span.List__number 2
         %h3.List__text
-          %span シンプル
+          %span.aoiro
+            シンプル
           で使いやすい
         %p.List__comment
           めんどくさい入力は必要なく、検索も購入もスムーズ！
@@ -39,7 +44,8 @@
           %span.List__number 3
         %h3.List__text
           手数料
-          %span 業界最安
+          %span.aoiro
+            業界最安
         %p.List__comment
           最大3％でお得に購入＆出品
   .Center
@@ -52,6 +58,12 @@
         出品・購入回数も業界最多です！
         %br
         ほしかったあの商品に出会えるかもしれません。
+        %br
+        .Button
+          .Button__apple
+            = image_tag("apple.png", width: 180)
+          .Button__google
+            = image_tag("google.png", width: 180)
   .Feature
     %h2.Feature__Head
       FURIMAの特徴
