@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @category = Category.all.order("id ASC").limit(13)
   end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find(params[:productcategory]).children
   end
-    
+
   def update
     if @product.update(product_params)
       redirect_to products_path, notice: '更新されました'
