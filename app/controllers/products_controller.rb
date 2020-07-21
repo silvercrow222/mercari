@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @items = Product.where(buyer_id: nil).includes(:images).order('created_at DESC')
+    @brand = Product.where(buyer_id: nil, brand_id: 0).includes(:images).order('created_at DESC')
   end
 
   def show
@@ -16,9 +17,13 @@ class ProductsController < ApplicationController
   end
   
   def new
-    @product = Product.new
-    @product.images.new
-    @category = Category.all.order("id ASC").limit(13)
+    if user_signed_in?
+      @product = Product.new
+      @product.images.new
+      @category = Category.all.order("id ASC").limit(13)
+    else
+      redirect_to new_user_registration_path
+    end
   end
   
   def create

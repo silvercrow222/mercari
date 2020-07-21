@@ -1,0 +1,64 @@
+.download {
+    height: 350px;
+    background-image: url("pict/bg-appBanner-pict.jpg");
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+        font-size: 25px;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+        font-size: 35px;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    }
+    .download_btn {
+        display: flex;
+        margin-top: 20px;
+        .apple {
+            margin-right: 10px;
+        }
+        .apple:hover {
+            opacity: .6;
+            cursor: pointer;
+        }
+        .google:hover {
+            opacity: .6;
+            cursor: pointer;
+        }
+    }
+}
+
+.footer_bottom {
+    background-color: #272727;
+    color: #fff;
+    padding: 50px 100px;
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        .about, .look, .help_guide {
+            text-align: center;
+            h1 {
+                font-weight: bold;
+                padding: 10px;
+            }
+            li {
+                display: block;
+                padding: 10px;
+                font-size: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+    .logo_mark {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+            font-size: smaller;
+        }
+    }
+}
