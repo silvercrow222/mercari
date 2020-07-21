@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @items = Product.where(buyer_id: nil).includes(:images).order('created_at DESC')
+    @brand = Product.where(buyer_id: nil, brand_id: 0).includes(:images).order('created_at DESC')
   end
 
   def show

@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  text-decoration: none;
 }
 .h2{
   display: block;
@@ -13,20 +14,53 @@
 .ul{
   list-style: none;
 }
+p{
+  font-size: 10px;
+  text-align: left;
+}
+.Main{
+  background: #f8f8f8;
+}
 .Top{
   width: 100%;
   height: 560px;
-  background-image: url('bg-mainVisual-pict_pc.jpg');
+  background-image: image-url('bg-mainVisual-pict_pc.jpg');
   background-size: cover;
+  background-position: top center;
+  position: relative;
   padding: 0 60px;
+  display: flex;
+  align-items: center;
 }
+.Line{
+  content: "";
+  width: 70px;
+  height: 4px;
+  background-color: #3CCACE;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .Content{
   max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
   padding: 35px 0 0 0;
 
   &__title{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     font-size: 60px;
+    line-height: 1.2;
     color: #fff;
+  }
+  &__text{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.77778;
+    margin: 16px 0 0 0;
   }
 }
 .Middle{
@@ -34,11 +68,13 @@
   padding: 60px 20px;
 
   &__comment{
-    font-size: 26px;
     text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
     font-weight: bold;
     margin-bottom: 25px;
     padding-bottom: 15px;
+    position: relative;
   }
   
 }
@@ -86,7 +122,7 @@
   }
 }
 .Center{
-  background-image: url('bg-topMiddleDl-pict.jpg');
+  background-image: image-url('bg-topMiddleDl-pict.jpg');
   background-size: cover;
   background-position: bottom right;
   height: 400px;
@@ -121,6 +157,7 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+
   }
 }
 .Icons{
@@ -128,7 +165,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  
+  margin: 0 auto;
 }
 .Icon{
   display: flex;
@@ -157,6 +194,7 @@
   padding: 80px 0 0;
   background-color: #f8f8f8;
   height: 100%;
+  display: block;
   &__head{
     text-align: center;
     font-size: 28px;
@@ -166,19 +204,47 @@
 }
 
 .Product{
-  width: 780px;
-  margin: 26px auto;
-  display: flex;
-  justify-content: space-around;
+  &__title{
+    text-align: center;
+  }
+  &__lists{
+    width: 780px;
+    margin: 26px auto;
+    display: flex;
+    justify-content: space-around;
+  }
   &__list{
     width: 220px;
     display: inline-block;
     float: left;
   }
+  &__image{
+    width: 220px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: auto;
+  }
   &__date{
     background-color: white;
     color: #333;
     padding: 16px;
+    &--name{
+      overflow: hidden;
+      line-height: 1.5;
+      font-size: 16px;
+      text-align: left;
+    }
+    &--price{
+      font-size: 16px;
+    }
   }
+}
+.title{
+  font-size: 24px;
+  text-decoration: none;
+  color: #3CCACE;
+  font-weight: bold;
 }
 
