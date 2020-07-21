@@ -71,9 +71,11 @@
           or
         = link_to '出品を一旦停止する'
         = link_to 'この商品を削除する', product_path(@product.id), method: :delete
+      - elsif @product.buyer_id.present?
+        = link_to '売り切れました', products_path
       - else
         %div#buy-button
-          %a.button{:href =>"#"}購入画面に進む
+          = link_to "購入画面に進む", purchase_path(@product.id)
         .exhibitor-comment
         test
         test

@@ -1,26 +1,116 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :"郵便番号"
-    %br/
-    = f.text_field :postal_code , placeholder: "例)111-1111"
-  .field
-    = f.label :"都道府県"
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-  .field
-    = f.label :"市区町村"
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :"番地"
-    %br/
-    = f.text_field :block
-  .field
-    = f.label :"アパート号室"
-    %br/
-    = f.text_field :apartment
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+%body.sign
+  .header-box
+    .header-box__sign-up
+      %h1.header-box__sign-up__logo
+        =link_to image_tag("logo.png",width:"185",height:"49"), root_path  
+      %nav.header-box__sign-up__box
+        %ol
+          %li.header-box__sign-up__box__text
+            会員情報
+            .header-box__sign-up__box__round--start
+          %li.header-box__sign-up__box__text--active{ id: "first" }
+            お届け先住所入力
+            .header-box__sign-up__box__round--green-two
+          %li.header-box__sign-up__box__text{ id: "end" }
+            完了
+            .header-box__sign-up__box__round__end
+
+  .main
+    .main__box
+      .main__box__container__one
+        %h2.main__box__h2 住所情報登録
+      .main__box__container__two
+        .main__box__container__two__in
+          = form_for @address do |f|
+            .field
+              = f.label :"郵便番号"
+              %span.caution 必須
+              %br/
+              = f.text_field :postal_code , class: 'form', placeholder: "例)111-1111"
+              - if @address.errors.any?
+                .error_explanation
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul.error-messages
+                    - @address.errors.full_messages_for(:postal_code).each do |message|
+                      %li{style: "color:red"}
+                        = message
+              %br/
+
+            .field
+              = f.label :"都道府県"
+              %span.caution 必須
+              %br/
+              = f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{prompt: ""}, {class: "form-two"})
+              - if @address.errors.any?
+                .error_explanation
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul.error-messages
+                    - @address.errors.full_messages_for(:prefecture_id).each do |message|
+                      %li{style: "color:red"}
+                        = message
+            .field
+              = f.label :"市区町村"
+              %span.caution 必須
+              %br/
+              = f.text_field :city, class: 'form'
+              - if @address.errors.any?
+                .error_explanation
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul.error-messages
+                    - @address.errors.full_messages_for(:city).each do |message|
+                      %li{style: "color:red"}
+                        = message
+            .field
+              = f.label :"番地"
+              %span.caution 必須
+              %br/
+              = f.text_field :block, class: 'form'
+              - if @address.errors.any?
+                .error_explanation
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul.error-messages
+                    - @address.errors.full_messages_for(:block).each do |message|
+                      %li{style: "color:red"}
+                        = message
+            .field
+              = f.label :"アパート号室(省略可)"
+              %br/
+              = f.text_field :apartment, class: 'form', placeholder: "省略可"
+              %br
+              %br
+            .actions
+              = f.submit "Sign up", class: 'sign-btn'
+            .message-box
+              .message-box__one
+                = link_to '本人情報の登録について>', "#", class: 'message-box__in'
+              .message-box__two
+                This site is protected by reCAPTCHA and the Google 
+                %span.blue Privacy Policy
+                and 
+                %span.blue Terms of Service 
+                apply.
+
+.footer-box
+  .footer-box__one
+    %ul.footer-box__one__list
+      %li.footer_box__one__list__detail
+        = link_to 'プライバシーポリシー', "#", class: 'policy'
+      %li.footer_box__one__list__detail
+        = link_to 'メルカリ利用規約' , "#", class: 'policy'
+      %li.footer_box__one__list__detail
+        = link_to '特定商取引に関する表記', "#", class: 'policy'
+  .footer-box__two
+  .footer-box__three
+    © Mercari, Inc.

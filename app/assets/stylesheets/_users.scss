@@ -1,0 +1,260 @@
+* {
+  box-sizing: border;
+}
+h3 {
+  font-weight: bold;
+}
+
+.wrapper {
+  background-color: #f6f6f6;
+  padding: 40px 0;
+  display: flex;
+}
+
+.btn {
+  color: white;
+  background-color: #3ccace;
+  height: 50px;
+  width: 320px;
+  margin: 24px 126px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 48px;
+  text-decoration: none;
+  transition: opacity 1s;
+  display: block;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.LinkList {
+  width: 280px;
+  margin-right: 40px;
+  margin-left: calc(calc(100% - 1020px)/2);
+  &__main {
+    display: flex;
+    flex-direction: column;
+    &--list {
+      color: #333;
+      background-color: white;
+      padding: 14px 16px;
+      margin-top: 1.5px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    &--list:hover {
+      background-color: #fafafa;
+    }
+  }
+  &__config {
+    display: flex;
+    flex-direction: column;
+    &--top {
+      margin: 40px 0 8px 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &--list {
+      color: #333;
+      background-color: white;
+      padding: 14px 16px;
+      margin-top: 1px;
+      font-size: 14px;
+      text-align: left;
+      text-decoration: none;
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+
+.UserData {
+  width: 700px;
+  &__data {
+    background-color: #ddd;
+    background-image: image-url("back.jpg");
+    background-size: cover;
+    height: 140px;
+    padding: 20px;
+    text-align: center;
+    &--icon {
+      background-color: #eee;
+      background-image: image-url("icon.png");
+      background-size: 85px 85px;
+      width: 80px;
+      height: 80px;
+      margin: 25px auto 15px;
+      border-radius: 100px;
+    }
+    &--name {
+      font-weight: bolder;
+    }
+  }
+  &__info {
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+  &__notice {
+    background-color: #eee;
+    width: 50%;
+    line-height: 50px;
+    display: block;
+  }
+  &__contents1 {
+    background-color: white;
+    height: 400px;
+  }
+  &__bought {
+    background-color: #fafafa;
+    height: 70px;
+    border-bottom: 2px solid #3ccace;
+    padding-left: 20px;
+    margin-top: 40px;
+    line-height: 70px;
+    display: black;
+  }
+  &__contents2 {
+    background-color: white;
+    height: 300px;
+  }
+}
+
+.Payment {
+  width: 700px;
+  &--top {
+    color: #333;
+    background-color: white;
+    height: 50px;
+    margin-bottom: 1.5px;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+  }
+  &__add {
+    background-color: white;
+    height: 150px;
+    padding: 50px 64px;
+    text-align: center;
+    &--top {
+      color: #333;
+      font-weight: bolder;
+      position: relative;
+      left: -80px;
+    }
+    &--pay {
+      padding-right: 15px;
+    }
+    &--border {
+      width: 600px;
+      padding-top: 10px;
+      margin: 0 auto;
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  &__card {
+    color: #333;
+    background-color: white;
+    height: 400px;
+    padding: 40px 64px;
+    font-size: 14px;
+    text-align: center;
+    &--form {
+      height: 48px;
+      width: 324px;
+      padding-left: 16px;
+      margin-top: 8px;
+      border: 1.2px solid #ccc;
+      border-radius: 4px;
+    }
+    &--formhalf {
+      height: 48px;
+      width: 116px;
+      padding-left: 16px;
+      margin: 8px 12px 0 8px;
+      border: 1.2px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  &__number--top {
+    position: relative;
+    left: -115px;
+  }
+  &__limit {
+    margin-right: 20px;
+    &--top {
+      margin-top: 32px;
+      position: relative;
+      left: -112px;
+    }
+  }
+  &__cord--top {
+    margin-top: 32px;
+    position: relative;
+    left: -87px;
+  }
+  &__btn {
+    width: 343px;
+    margin-top: 40px;
+    margin-left: 115px;
+  }
+}
+
+#news {
+  display: none;
+}
+
+.greater {
+  float: right;
+  opacity: 0.4;
+  padding-right: 5px;
+}
+
+.noData {
+  background-image: image-url('gray.png');
+  background-size: 400px, 100px;
+  width: 100px;
+  height: 115px;
+  margin: 0 auto;
+  position: relative;
+  top: 60px;
+}
+.noDataText {
+  color: #ddd;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 70px;
+}
+
+.must {
+  color: white;
+  background-color: #3ccace;
+  padding: 2px 4px;
+  margin-left: 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.rightActive {
+  background-color: white;
+  border-bottom: 2px solid #3ccace;
+  height: 48px;
+}
+
+.leftActive {
+  color: #333;
+  background-color: #eee;
+  font-weight: bold;
+  &:hover {
+  background-color: #eee;
+  }
+}

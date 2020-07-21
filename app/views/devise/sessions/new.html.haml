@@ -1,17 +1,43 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+%body.sign
+  .header-box
+    .header-box__log-in
+      %h1.header-box__log-in__logo
+        =link_to image_tag("logo.png",width:"185",height:"49"), root_path  
+
+
+  .main
+    .main__box-dash
+      .main__box-dash__container__one
+        %p.acount アカウントをお持ちでない方はこちら
+        = button_to '新規会員登録', new_user_registration_path, {method: :get, class: "to-sign-btn"}
+
+      .main__box__container__two-dash
+        .main__box__container__two-dash__in
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field-dash
+              %br/
+              = f.email_field :email, class: 'form-dash-log', autofocus: true, autocomplete: "email" , placeholder: "メールアドレス"
+            .field-dash
+              %br/
+              = f.password_field :password, class: 'form-dash-log', autocomplete: "current-password", placeholder: "パスワード"
+            - if devise_mapping.rememberable?
+              .field-dash
+                = f.check_box :remember_me
+                = f.label :remember_me
+              %br
+            .actions
+              = f.submit "ログイン", class: 'log-btn'
+            = link_to 'パスワードをお忘れの方', "#", class: 'message-box__dash'
+
+.footer-box
+  .footer-box__one
+    %ul.footer-box__one__list
+      %li.footer_box__one__list__detail
+        = link_to 'プライバシーポリシー', "#", class: 'policy'
+      %li.footer_box__one__list__detail
+        = link_to 'メルカリ利用規約' , "#", class: 'policy'
+      %li.footer_box__one__list__detail
+        = link_to '特定商取引に関する表記', "#", class: 'policy'
+  .footer-box__two
+  .footer-box__three
+    © Mercari, Inc.
