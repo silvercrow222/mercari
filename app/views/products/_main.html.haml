@@ -111,25 +111,25 @@
                     #{product.price}円
                     %p
                       (税込)
-  .Pickup
-    %h2.Pickup__head
-      ピックアップブランド
-    .Product
-      .Product__title
-        .title
-          シャネル
-      .Product__lists
-        - @brand.each_with_index do |product, i|
-          - if i < 4
-            .Product__list
-              = link_to product_path(product) do
-                .Product__image
-                  = image_tag product.images.first.src.url, height: '150px', width: '220px'
-                .Product__date
-                  .Product__date--name
-                    #{product.name}
-                  .Product__date--price
-                    #{product.price}円
-                    %p
-                      (税込)
-    = render partial: './footer'
+  -# .Pickup
+  -#   %h2.Pickup__head
+  -#     ピックアップブランド
+  -#   .Product
+  -#     .Product__title
+  -#       .title
+  -#         シャネル
+  -#     .Product__lists
+  -#       - @brand.each_with_index do |product, i|
+  -#         - if i < 4
+  -#           .Product__list
+  -#             = link_to product_path(product) do
+  -#               .Product__image
+  -#                 = image_tag product.images.first.src.url, height: '150px', width: '220px'
+  -#               .Product__date
+  -#                 .Product__date--name
+  -#                   #{product.name}
+  -#                 .Product__date--price
+  -#                   #{product.price}円
+  -#                   %p
+  -#                     (税込)
+= render partial: './footer'
