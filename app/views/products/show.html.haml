@@ -1,31 +1,22 @@
-!!!
-%html{lang: "ja"}
-%head
-  %meta{"charset":"UTF-8"}
-  %link{"href": "style.scss", "rel": "stylesheet"}
-%body.ProductShow
+#container
+  #logo
+    = image_tag("logo.png", width: 200)
+.ProductShow
   .ProductShow__container
     .ProductShow__container--one
       %h1.ProductShow__title
         = @product.name
-      %p.ProductShow__detail
-        = @product.detail
       .ProductShow__content
-        .ProductShow__imageBox
-          .ProductShow__imageBox--main
-            =image_tag("iron.jpg",width:"300",height:"300")
-          .ProductShow__imageBoxs
-            .photoActive
-              =image_tag("iron.jpg",width:"60",height:"60")
-            .photo
-              =image_tag("logo.png",width:"60",height:"60")
-            .photo
-              =image_tag("logo.png",width:"60",height:"60")
-            .photo
-              =image_tag("logo.png",width:"60",height:"60")
-            .photo
-              =image_tag("logo.png",width:"60",height:"60")
-
+        .ProductShow__imageBox          
+          = image_tag("iron.jpg", width: "300", height: "300", class: 'ProductShow__imageTop')
+          .ProductShow__images
+            = image_tag("iron.jpg", width:"60", height:"60", class: 'ProductShow__images--image active')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
           -# - @product.images.each do |image|
           -#   = image_tag "#{image.src.url}"
         %table.ProductShow__tableBox
@@ -100,8 +91,8 @@
         - else
           %div#buy-button
             = link_to "購入画面に進む", purchase_path(@product.id),{class: 'buybtn'}
-          .exhibitor-comment
-            ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。ここは売主のコメントが入ります。これはサンプルテキストです。
+          %p.exhibitor-comment
+            = @product.detail
           %br
           %p.safety あんしん・あんぜんへの取り組み
     - if user_signed_in?
@@ -113,9 +104,13 @@
         %button.comment__btn
           %span
             コメントする
-              
-    .NearFooter
-      .NearFooter__line
-        .NearFooter__list
-          フリマ＞
-          %span.name= @product.name
+#container
+  #footer
+    .f-btns
+      = link_to("プライバシーポリシー", "#", class: "f-letter")
+      = link_to("フリマ利用規約", "#", class: "f-letter")
+      = link_to("特定商取引に関する表記", "#", class: "f-letter")
+    
+    .f-logo
+    .author
+      ©︎ Furima, Inc.

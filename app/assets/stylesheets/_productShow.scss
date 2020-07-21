@@ -1,55 +1,45 @@
 .ProductShow {
   &__container {
     background-color: rgb(245, 245, 245);
-    padding: 40px 0;
+    padding: 0 0 40px 0;
     width: 100%;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     &--one {
       margin: 0 auto;
       padding: 24px 40px 40px;
-      width:620px;
-      background-color:white;
+      width: 620px;
+      background-color: white;
     }
   }
-    &__title {
-      width: 620px;
-      // height: 33px;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-    }
-    &__detail {
-      width: 620px;
-      font-size: 14px;
-      color: #888888;
-      margin: 8px 0 0;
-    }
-    &__content {
-      width: 620px;
-      margin: 16px 0 0;
-      display: flex;
-    }
-    &__imageBox {
-      width: 300px;
-      min-height: 375px;
-      &--main {
-        background-color: #fafafa;
-      }
-    &__imageBoxs {
-      background-color: #fafafa;
-      width: 300px;
-      display: flex;
-      .photo {
-        width: 60px;
-        height: 60px;
-        display: none;
-      }
-      .photoActive {
-        width: 60px;
-        height: 60px;
-        display: block;
-        // display: inline-block;
-      }
+  &__title {
+    width: 620px;
+    // height: 33px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__detail {
+    width: 620px;
+    font-size: 14px;
+    color: #888888;
+    margin: 8px 0 0;
+  }
+  &__content {
+    width: 620px;
+    margin: 16px 0 0;
+    display: flex;
+  }
+  &__imageTop {
+    width: 300px;
+    height: 300px;
+    background-color: #fafafa;
+  }
+  &__images {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    &--image {
+      opacity: 0.4;
     }
   }
   &__tableBox {
@@ -170,4 +160,8 @@
       }
     }
   }
+}
+
+.active {
+  opacity: 1;
 }
