@@ -1,3 +1,5 @@
+= render './header'
+
 .wrapper
   .LinkList
     .LinkList__main
@@ -43,7 +45,9 @@
     %h3.Payment--top 支払い方法
     .Payment__add
       %h3.Payment__add--top クレジットカード一覧
-      = link_to cardCreate_users_path, class: 'Payment__add--btn btn' do
+      = link_to new_card_path, class: 'Payment__add--btn btn' do
         %span.fas.fa-credit-card.Payment__add--pay
         クレジットカードを追加する
       .Payment__add--border
+
+= render './footer'

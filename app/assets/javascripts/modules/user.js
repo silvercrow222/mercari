@@ -17,7 +17,7 @@ $(function() {
   );
 
   $('.UserData__notice').on('click', function() {
-    if ($(this).hasClass('rightActtive')) {
+    if ($(this).hasClass('rightActive')) {
     } else {
       $('.UserData__notice').removeClass('rightActive');
       $(this).addClass('rightActive');
