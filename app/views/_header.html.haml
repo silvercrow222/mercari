@@ -1,0 +1,22 @@
+.Header
+  .Header__top
+    = link_to root_path do
+      = image_tag 'logo.png', class: 'Header__top--logo'
+    = form_tag("#") do
+      %input.Header__top--search{placeholder: '何かお探しですか？'}
+    %i.fas.fa-search.Header__top--icon
+  .Header__bottom
+    .Header__left
+      .Header__category.Header__tag
+        = image_tag 'icon_category.png', class: 'icon'
+        %p カテゴリーから探す
+      .Header__bland.Header__tag
+        = image_tag 'icon_brand.png', class: 'icon'
+        %p ブランドから探す
+    .Header__right
+      .Header__notice
+        %i.far.fa-bell.Header__notice--icon
+        %p.Header__notice--text お知らせ
+      .Header__mypage
+        = image_tag 'icon.png', class: 'Header__mypage--icon'
+        = link_to 'マイページ', user_path(current_user), class: 'Header__mypage--text'
