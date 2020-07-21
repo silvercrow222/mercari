@@ -2,20 +2,19 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|integer(enum)|null: false|
+|detail|text|null: false|
 |price|integer|null: false|
-|detail|text||
 |condition|integer(enum)|null: false|
 |size|integer(enum)||
-|days|integer(enum)|null: false|
-|method|integer(enum)|null: false|
+|day|integer(enum)|null: false|
+|shipping|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
+|prefecture|integer(enum)|null: false|
+|brand_id|integer|null: false|
 |buyer_id|integer|null: false|
-|prefecture_id|integer(enum)|null: false|
-
+|user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
