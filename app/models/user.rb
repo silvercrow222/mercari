@@ -18,8 +18,9 @@ class User < ApplicationRecord
   validates :family_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
   validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA, message: 'はカタカナで入力して下さい'}
 
-  has_one :address
-  has_one :card
+  has_many :products, dependent: :destroy
+  has_one :address, dependent: :destroy
+  has_one :card, dependent: :destroy
 
   mount_uploader :icon, ImageUploader
 end

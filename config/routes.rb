@@ -20,8 +20,6 @@ Rails.application.routes.draw do
       get 'done', to: 'purchase#done'
     end
   end
-  resources :mypages, only: :index do
-  end
 
   resources :users, only: :show do
     collection do
