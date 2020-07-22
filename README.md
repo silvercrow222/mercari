@@ -1,11 +1,25 @@
 [![GitHub issues](https://img.shields.io/github/issues/akioyokota/mercari)](https://github.com/akioyokota/mercari/issues)
-
+[![GitHub forks](https://img.shields.io/github/forks/akioyokota/mercari)](https://github.com/akioyokota/mercari/network)
+[![GitHub stars](https://img.shields.io/github/stars/akioyokota/mercari)](https://github.com/akioyokota/mercari/stargazers)
 
 
 # What
-フリマサイトのクローンサイトを作成しました。
+We are making clone of Free Market site.
 
-# DB設計
+# FURIMA
+You can check this app on <a href="http://52.192.240.140/">AWS!</a>
+Please search for it on the internet.
+
+<img src="screen1.png">
+
+# About
+This app is clone site. You cannot actually buy ptoducts. But the basic systems has been reproduced! So please make an index of our technical level with it.
+
+# Technology used
+This application uses the following open source packages:
+<img src="ruby-logo-R.png>
+
+# Database
 ## products table
 |Column|Type|Options|
 |------|----|-------|
