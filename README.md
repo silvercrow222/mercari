@@ -18,7 +18,7 @@ This app is clone site. You cannot actually buy ptoducts. But the basic systems 
 # Technology used
 This application uses the following open source packages:
 
-<img width="400" src="https://user-images.githubusercontent.com/66178755/88137949-9a230a80-cc27-11ea-833f-ed94a3558851.png">
+<img width="100" src="https://user-images.githubusercontent.com/66178755/88137949-9a230a80-cc27-11ea-833f-ed94a3558851.png">
 
 # Database
 ## products table
