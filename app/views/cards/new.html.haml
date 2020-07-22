@@ -43,7 +43,7 @@
         %span.fas.fa-greater-than.greater
   .Payment
     %h3.Payment--top クレジットカード情報入力
-    = form_tag(pay_cards_path, method: :post, id: 'charge-form', class: 'Payment__card', name: "inputForm") do
+    = form_tag(pay_card_path(current_user.id), id: 'charge-form', class: 'Payment__card', name: "inputForm") do
       .Payment__number
         %h3.Payment__number--top
           カード番号
