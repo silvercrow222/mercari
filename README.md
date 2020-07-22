@@ -1,3 +1,11 @@
+[![GitHub issues](https://img.shields.io/github/issues/akioyokota/mercari)](https://github.com/akioyokota/mercari/issues)
+
+
+
+# What
+フリマサイトのクローンサイトを作成しました。
+
+# DB設計
 ## products table
 |Column|Type|Options|
 |------|----|-------|
