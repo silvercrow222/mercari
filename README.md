@@ -10,10 +10,10 @@ We are making clone of Free Market site.
 You can check this app on <a href="http://52.192.240.140/">AWS!</a>
 Please search for it on the internet.
 
+<img width="1406" alt="screen1" src="https://user-images.githubusercontent.com/66178755/88137414-73180900-cc26-11ea-9ee4-4f55b4b7e51d.png">
+
 # About
 This app is clone site. You cannot actually buy ptoducts. But the basic systems has been reproduced! So please make an index of our technical level with it.
-
-<img width="1406" alt="screen1" src="https://user-images.githubusercontent.com/66178755/88137414-73180900-cc26-11ea-9ee4-4f55b4b7e51d.png">
 
 # Technology used
 This application uses the following open source packages:
