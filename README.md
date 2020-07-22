@@ -10,14 +10,14 @@ We are making clone of Free Market site.
 You can check this app on <a href="http://52.192.240.140/">AWS!</a>
 Please search for it on the internet.
 
-<img src="screen1.png">
+<img src="app/asstes/images/screen1.png">
 
 # About
 This app is clone site. You cannot actually buy ptoducts. But the basic systems has been reproduced! So please make an index of our technical level with it.
 
 # Technology used
 This application uses the following open source packages:
-<img src="ruby-logo-R.png>
+<img src="ruby-logo-R.png">
 
 # Database
 ## products table
