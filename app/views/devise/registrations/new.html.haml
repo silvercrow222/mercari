@@ -2,7 +2,7 @@
   .header-box
     .header-box__sign-up
       %h1.header-box__sign-up__logo
-        =link_to image_tag("logo.png",width:"185",height:"49"), root_path  
+        =link_to image_tag("logo.png",width:"185",height:"49"), root_path,{class: 'ShowImg'}  
       %nav.header-box__sign-up__box
         %ol
           %li.header-box__sign-up__box__text--active{ id: "first" }
@@ -217,4 +217,4 @@
         = link_to '特定商取引に関する表記', "#", class: 'policy'
   .footer-box__two
   .footer-box__three
-    © Mercari, Inc.
+    © Furima, Inc.

@@ -1,0 +1,170 @@
+.ProductShow {
+  &__container {
+    background-color: rgb(245, 245, 245);
+    padding: 0 0 40px 0;
+    width: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    &--one {
+      margin: 0 auto;
+      padding: 24px 40px 40px;
+      width: 700px;
+      background-color: white;
+    }
+  }
+  &__title {
+    width: 620px;
+    // height: 33px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__detail {
+    width: 620px;
+    font-size: 14px;
+    color: #888888;
+    margin: 8px 0 0;
+  }
+  &__content {
+    width: 620px;
+    margin: 16px 0 0;
+    display: flex;
+  }
+  &__imageTop {
+    width: 300px;
+    height: 300px;
+    background-color: #fafafa;
+  }
+  &__images {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    &--image {
+      opacity: 0.4;
+    }
+  }
+  &__tableBox {
+    width: 286px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    font-size: inherit;
+  }
+  .word {
+    width: 99px;
+    padding: 8px;
+    background-color: #fafafa;
+    border: 1px solid #f5f5f5;
+    color:#333333;
+    font-size: 14px;
+  }
+  .sky {
+    color:#0099E8;
+  }
+  .gray {
+    color:#333333;
+  }
+  .info {
+    width: 164px;
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    color: #333333;
+    font-size: 14px;
+  }
+  .info__sky {
+    width: 164px;
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    color: #0099E8;
+    font-size: 14px;
+  }
+  &__price {
+    width: 620px;
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+  }
+  .tax {
+    font-size: 10px;
+    font-weight: normal;
+  }
+  .fee {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  #buy-button {
+    width: 610px;
+    height: 60px;
+    margin: 24px 0 32px;
+    font-size: 24px;
+    align-items: center;
+    background-color: #3ccace;
+    transition: opacity 1s;
+    display: flex;
+    &:hover {
+      opacity: 0.5;
+    }
+    a.buybtn {
+      text-decoration: none;
+      margin: 0 auto;
+      color: white;
+    }
+  }
+  .safety {
+    text-align: right;
+    padding: 8px 12px 8px 0;
+    color: #0099eb;
+    font-size: 14px;
+  }
+  .exhibitor-comment {
+    font-size: 18px;
+  }
+  &__commentbox {
+    width: 620px;
+    margin: 20px auto;
+    padding: 10px 40px 20px;
+    // margin: 0 auto;
+    background-color: white;
+    .comment {
+      margin: 20px 0 10px;
+      padding: 8px;
+      background-color: #fff6de;
+      font-size: 14px;
+      color: #333333;
+      &__text {
+        width: 598px;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      &__btn {
+        width: 620px;
+        height: 50px;
+        background-color: #aaa;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        margin: 8px 0;
+        color: white;
+      }
+    }
+  }
+  .NearFooter {
+    border-top: 1px solid #eee;
+    width: 100%;
+    // display: flex;
+    &__line {
+      width: 620px;
+      margin: 0 auto;
+      &__list {
+        font-size: 14px;
+        .name {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+}

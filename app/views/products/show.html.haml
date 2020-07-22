@@ -1,95 +1,118 @@
-!!!
-%html{lang: "ja"}
-%head
-  %meta{"charset":"UTF-8"}
-  %link{"href": "style.scss", "rel": "stylesheet"}
-%body
-  = render partial: './header'
-  .product
-    %h1.product_title
-      = @product.name
-    %div.product-image
-      - @product.images.each do |image|
-        = image_tag "#{image.src.url}"
-    %table.product-dateil
-      %tbody
-        %tr
-          %th
-            出品者
-          %td
-            = @product.user.nickname
-        %tr
-          %th
-            カテゴリー
-          %td
-            = @parent.name
-            %br
-            = @child.name
-            %br
-            = @grandchild.name
-        %tr
-          %th
-            ブランド
-          %td
-            = @product.brand_id
-        %tr
-          %th
-            商品サイズ
-          %td
-            = @product.size
-        %tr
-          %th
-            商品の状態
-          %td
-            = @product.condition
-        %tr
-          %th
-            配送料負担
-          %td
-            = @product.fee
-        %tr
-          %th
-            発送方法
-          %td
-            = @product.shipping
-        %tr
-          %th
-            配送元地域
-          %td
-            = @product.prefecture_id
-        %tr
-          %th
-            発送日の目安
-          %td
-            = @product.day
-        %tr
-    .product-price
-      =  "#{@product.price}円"
-    .more-list
-      - if user_signed_in? && current_user.id == @product.user_id
-        = link_to '商品の編集', edit_product_path(@product.id)
-        %p
-          or
-        = link_to '出品を一旦停止する'
-        = link_to 'この商品を削除する', product_path(@product.id), method: :delete
-      - elsif @product.buyer_id.present?
-        = link_to '売り切れました', products_path
-      - else
-        %div#buy-button
-          = link_to "購入画面に進む", purchase_path(@product.id)
-        .exhibitor-comment
-        test
-        test
-        test
-        test
-        test
-        test
-        test
-      %form.comment{:action => "", :method => "get"}
-        %p.attention
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.comment_text
-      %button.comment_btn
-        %span
-          コメントする
-  = render partial: './footer'
+
+#container
+  #logo
+    = image_tag("logo.png", width: 200)
+.ProductShow
+  .ProductShow__container
+    .ProductShow__container--one
+      %h1.ProductShow__title
+        = @product.name
+      .ProductShow__content
+        .ProductShow__imageBox          
+          = image_tag("iron.jpg", width: "300", height: "300", class: 'ProductShow__imageTop')
+          .ProductShow__images
+            = image_tag("iron.jpg", width:"60", height:"60", class: 'ProductShow__images--image active')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
+          -# - @product.images.each do |image|
+          -#   = image_tag "#{image.src.url}"
+        %table.ProductShow__tableBox
+          %tbody
+            %tr
+              %th.word
+                出品者
+              %td.info__sky
+                = @product.user.nickname
+                %br
+                -# %span.gray 40 0
+            %tr
+              %th.word
+                カテゴリー
+              %td.info__sky
+                = @parent.name
+                %br
+                >
+                = @child.name
+                %br
+                >
+                = @grandchild.name
+            %tr
+              %th.word
+                ブランド
+              %td.info__sky
+                = @product.brand_id
+            %tr
+              %th.word
+                商品サイズ
+              %td.info
+                = @product.size
+            %tr
+              %th.word
+                商品の状態
+              %td.info
+                = @product.condition
+            %tr
+              %th.word
+                配送料負担
+              %td.info
+                = @product.fee
+            %tr
+              %th.word
+                発送方法
+              %td.info
+                = @product.shipping
+            %tr
+              %th.word
+                配送元地域
+              %td.info
+                = @product.prefecture_id
+            %tr
+              %th.word
+                発送日の目安
+              %td.info
+                = @product.day
+            %tr
+      .ProductShow__price
+        =  "¥#{@product.price}"
+        %span.tax (税込み)
+        %span.fee 送料込み
+      .more-list
+        - if user_signed_in? && current_user.id == @product.user_id
+          = link_to '商品の編集', edit_product_path(@product.id)
+          %p
+            or
+          = link_to '出品を一旦停止する'
+          = link_to 'この商品を削除する', product_path(@product.id), method: :delete
+        - elsif @product.buyer_id.present?
+          = link_to '売り切れました', products_path
+        - else
+          %div#buy-button
+            = link_to "購入画面に進む", purchase_path(@product.id),{class: 'buybtn'}
+          %p.exhibitor-comment
+            = @product.detail
+          %br
+          %p.safety あんしん・あんぜんへの取り組み
+    - if user_signed_in?
+      .ProductShow__commentbox
+        %form.comment{:action => "", :method => "get"}
+          %p.attention
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment__text
+        %button.comment__btn
+          %span
+            コメントする
+#container
+  #footer
+    .f-btns
+      = link_to("プライバシーポリシー", "#", class: "f-letter")
+      = link_to("フリマ利用規約", "#", class: "f-letter")
+      = link_to("特定商取引に関する表記", "#", class: "f-letter")
+    
+    .f-logo
+    .author
+      ©︎ Furima, Inc.
+      
