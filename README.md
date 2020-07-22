@@ -18,7 +18,7 @@ This app is clone site. You cannot actually buy ptoducts. But the basic systems 
 # Technology used
 This application uses the following open source packages:
 
-<img width="531" src="https://github.com/akioyokota/mercari/blob/README/app/assets/images/IMG_0581.JPG">
+<img width="531" src="https://github.com/akioyokota/mercari/blob/master/app/assets/images/IMG_0581.JPG">
 
 # Database
 ## products table
