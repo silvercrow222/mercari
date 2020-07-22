@@ -1,82 +1,73 @@
-## products table
+[![GitHub issues](https://img.shields.io/github/issues/akioyokota/mercari)](https://github.com/akioyokota/mercari/issues)
+[![GitHub forks](https://img.shields.io/github/forks/akioyokota/mercari)](https://github.com/akioyokota/mercari/network)
+[![GitHub stars](https://img.shields.io/github/stars/akioyokota/mercari)](https://github.com/akioyokota/mercari/stargazers)
 
+
+# What
+We are making clone of Free Market site.
+
+# FURIMA
+You can check this app on <a href="http://52.192.240.140/">AWS</a>!
+Please search for it on the internet.
+
+<img width="1406" alt="screen1" src="https://user-images.githubusercontent.com/66178755/88137414-73180900-cc26-11ea-9ee4-4f55b4b7e51d.png">
+
+# About
+This app is clone site. You cannot actually buy ptoducts. But the basic systems has been reproduced! So please make an index of our technical level with it.
+
+# Technology used
+This application uses the following open source packages:
+
+<img width="531" src="https://github.com/akioyokota/mercari/blob/README/app/assets/images/IMG_0581.JPG">
+
+# Database
+## products table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|integer(enum)|null: false|
+|detail|text|null: false|
 |price|integer|null: false|
-|detail|text||
 |condition|integer(enum)|null: false|
 |size|integer(enum)||
-|days|integer(enum)|null: false|
-|method|integer(enum)|null: false|
+|day|integer(enum)|null: false|
+|shipping|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
+|prefecture_id|integer|null: false|
+|brand_id|integer|null: false|
 |buyer_id|integer|null: false|
-|prefecture_id|integer(enum)|null: false|
-
+|user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :brand
 - belongs_to :category
-- has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
+- accepts_nested_attributes_for :images, allow_destroy: true
 
 
 ## categories table
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string||
-
 
 ### Association
 - has_many :products
 - has_ancestry
 
 
-## likes table
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :product
-
-
 ## cards table
-
 |Column|Type|Options|
 |------|----|-------|
-|card_id|integer|null: false|
-|buyer_id|integer|null: false|
+|card_id|string|null: false|
+|customer_id|string|null: false|
 |user_id|references|null: false, foreign_key:true|
 
 ### Association
 - belongs_to :user
 
 
-## comments table
-
-|Column|Type|Options|
-|------|----|-------|
-|comment|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :product
-
-
 ## addresses table
-
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
@@ -87,7 +78,8 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+- belongs_to_active_hash :prefecture
 
 
 ## users table
@@ -97,20 +89,19 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthday|string|null: false|
+|birthday|date|null: false|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |phone|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
 |icon|string|null: false|
 |profile|text||
 
 ### Association
 - has_many :products, dependent: :destroy
-- has_many :cards, dependent: :destroy
-- has_many :comments, dependent: :destroy
-- has_one :addresses, dependent: :destroy
-- has_many :likes, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :card, dependent: :destroy
+
 
 ## images table
 |Column|Type|Options|
