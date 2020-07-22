@@ -91,4 +91,15 @@ window.onload = function(e){
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
+
+  $('.btn1').on('click', function (e) {
+    if (document.getElementById('child_category').value == "---") {
+      e.preventDefault();
+      alert('カテゴリーを入力せい');
+    }
+    if (document.getElementById('grandchild_category').value == "---") {
+      e.preventDefault();
+      alert('カテゴリーを入力せい');
+    }
+  });
 });
