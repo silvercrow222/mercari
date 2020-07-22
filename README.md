@@ -1,5 +1,4 @@
 ## products table
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -10,7 +9,7 @@
 |day|integer(enum)|null: false|
 |shipping|integer(enum)|null: false|
 |fee|integer(enum)|null: false|
-|prefecture|integer(enum)|null: false|
+|prefecture_id|integer|null: false|
 |brand_id|integer|null: false|
 |buyer_id|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
@@ -18,64 +17,34 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :brand
 - belongs_to :category
-- has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
+- accepts_nested_attributes_for :images, allow_destroy: true
 
 
 ## categories table
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string||
-
 
 ### Association
 - has_many :products
 - has_ancestry
 
 
-## likes table
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :product
-
-
 ## cards table
-
 |Column|Type|Options|
 |------|----|-------|
-|card_id|integer|null: false|
-|buyer_id|integer|null: false|
+|card_id|string|null: false|
+|customer_id|string|null: false|
 |user_id|references|null: false, foreign_key:true|
 
 ### Association
 - belongs_to :user
 
 
-## comments table
-
-|Column|Type|Options|
-|------|----|-------|
-|comment|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :product
-
-
 ## addresses table
-
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
@@ -86,7 +55,8 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+- belongs_to_active_hash :prefecture
 
 
 ## users table
@@ -96,20 +66,19 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthday|string|null: false|
+|birthday|date|null: false|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |phone|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
 |icon|string|null: false|
 |profile|text||
 
 ### Association
 - has_many :products, dependent: :destroy
-- has_many :cards, dependent: :destroy
-- has_many :comments, dependent: :destroy
-- has_one :addresses, dependent: :destroy
-- has_many :likes, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :card, dependent: :destroy
+
 
 ## images table
 |Column|Type|Options|
