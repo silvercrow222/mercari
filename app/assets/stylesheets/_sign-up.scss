@@ -284,11 +284,11 @@
       .main__box__container__two {
         .main__box__container__two__in {   
           margin: 0 auto;
-          padding: 35px 14px 0 0;
+          padding: 35px 0 0 0;
           width: 343px;
-          .form {
-            width: 309px;
-            height: 28px;
+          .form__sign {
+            width: 341px;
+            height: 48px;
             padding: 8px 16px 8px;
             margin: 4px 0 20px;
             border: 1px solid #ccc;
@@ -339,9 +339,9 @@
             border-radius: 4px;
           }
 
-          .name-form-detail{
-            width: 131.5px;
-            height: 28px;
+          .Name__form--detail{
+            width: 165px;
+            height: 48px;
             padding: 10px 16px 8px;
             margin: 8px 8px 0 0;
             border: 1px solid #ccc;
@@ -358,7 +358,7 @@
           }
           #user_birthday_1i ,#user_birthday_2i, #user_birthday_3i {
             width: 76px;
-            height: 26px;
+            height: 48px;
             padding: 10px 10px;
             font-size: 14px;
             border-radius: 4px;
@@ -438,8 +438,8 @@
       border-radius: 4px;
     }
     .form-dash-log {
-      width: 294px;
-      height: 28px;
+      width: 328px;
+      height: 48px;
       padding: 8px 16px 8px;
       margin: 4px 0 20px;
       border: 1px solid #ccc;
@@ -614,19 +614,15 @@
 }
 
 /* ヘッダー ログイン用 */
-.header-box__log-in {
+.HeaderBox__logIn {
   height:128px;
-  width: 540px;
+  width: 456px;
   margin: 0 auto;
-  display:flex;
-  &__logo{
-    width: 400px;
-    height: 50px;
-    padding: 40px 0 0 170px;
-    margin: 0 auto;
-    &a, img{
-      margin: 0 auto;
-    }
+  &--logo{
+    width: 100%;
+    height: 150px;
+    padding: 40px 0;
+    text-align: center;
   }
 }
 .acount {
