@@ -9,17 +9,11 @@
         = @product.name
       .ProductShow__content
         .ProductShow__imageBox          
-          = image_tag("iron.jpg", width: "300", height: "300", class: 'ProductShow__imageTop')
+          = image_tag("#{@product.images[0].src.url}", width: "300", height: "300", class: 'ProductShow__imageTop')
           .ProductShow__images
-            = image_tag("iron.jpg", width:"60", height:"60", class: 'ProductShow__images--image active')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-            = image_tag("logo.png", width:"60", height:"60", class: 'ProductShow__images--image')
-          -# - @product.images.each do |image|
-          -#   = image_tag "#{image.src.url}"
+            = image_tag("#{@product.images[0].src.url}", width:"60", height:"60", class: 'ProductShow__images--image active')
+            - @images[1..-1].each do |image|
+              = image_tag("#{image.src.url}", width:"60", height:"60", class: 'ProductShow__images--image')
         %table.ProductShow__tableBox
           %tbody
             %tr
@@ -87,7 +81,7 @@
             or
           = link_to '出品を一旦停止する'
           = link_to 'この商品を削除する', product_path(@product.id), method: :delete
-        - elsif @product.buyer_id.present?
+        - elsif @product.buyer_id
           = link_to '売り切れました', products_path
         - else
           %div#buy-button
