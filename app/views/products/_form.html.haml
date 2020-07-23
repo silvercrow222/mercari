@@ -25,8 +25,17 @@
       #about
         %b カテゴリー
         %span.necessary 必須
-        = f.collection_select :category, @category, :id, :name, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select",required: true }
-        .product_select-children
+        - if @product.persisted?
+          .listing-select-wrapper--edit
+            .listing-select-wrapper--edit__parent
+              = f.collection_select :category_id, Category.roots, :id, :name ,{prompt: "選択してください", selected:  @product.category.parent.parent_id}, {class: 'listing-select-wrapper--edit__parent--select', id: 'parent_category_edit', name: "" }
+            .listing-select-wrapper--edit__child
+              = f.collection_select :category_id, @product.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @product.category.parent_id}, {class: 'listing-select-wrapper--edit__child--select', id: 'child_category_edit', name: "" }
+            .listing-select-wrapper--edit__grandchild
+              = f.collection_select :category_id,@product.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @product.category.id}, {class: 'listing-select-wrapper--edit__grandchild--select', id: 'grandchild_category_edit', name: "product[category_id]" }
+        - else
+          = f.collection_select :category, @category, :id, :name, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select",required: true }
+          .product_select-children
         %br/
         %b ブランド
         %span.option 任意

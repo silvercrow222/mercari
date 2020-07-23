@@ -105,6 +105,9 @@ $dark-gray: #2f2f2f;
             #category_select,
             #child_category,
             #grandchild_category,
+            #parent_category_edit,
+            #child_category_edit,
+            #grandchild_category_edit,
             #product_condition {
                 @include style();
             }

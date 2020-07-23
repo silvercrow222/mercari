@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = ["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: :new
     else
