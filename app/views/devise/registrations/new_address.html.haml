@@ -102,15 +102,4 @@
                 %span.blue Terms of Service 
                 apply.
 
-.footer-box
-  .footer-box__one
-    %ul.footer-box__one__list
-      %li.footer_box__one__list__detail
-        = link_to 'プライバシーポリシー', "#", class: 'policy'
-      %li.footer_box__one__list__detail
-        = link_to 'メルカリ利用規約' , "#", class: 'policy'
-      %li.footer_box__one__list__detail
-        = link_to '特定商取引に関する表記', "#", class: 'policy'
-  .footer-box__two
-  .footer-box__three
-    © Furima, Inc.
+= render partial: './simpleFooter'
