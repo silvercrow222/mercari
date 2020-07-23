@@ -93,6 +93,16 @@ window.onload = function(e){
   })
 
   $('.btn1').on('click', function (e) {
+    if (document.getElementById('child_category_edit').value == "---") {
+      e.preventDefault();
+      $('.error-message').removeClass("error-message-hidden");
+      $("html,body").animate({scrollTop:$('#about').offset().top});
+    }
+    if (document.getElementById('grandchild_category_edit').value == "---") {
+      e.preventDefault();
+      $('.error-message').removeClass("error-message-hidden");
+      $("html,body").animate({scrollTop:$('#about').offset().top});
+    }
     if (document.getElementById('child_category').value == "---") {
       e.preventDefault();
       $('.error-message').removeClass("error-message-hidden");

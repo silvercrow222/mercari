@@ -20,7 +20,6 @@
               %td.info__sky
                 = @product.user.nickname
                 %br
-                -# %span.gray 40 0
             %tr
               %th.word
                 カテゴリー
@@ -78,16 +77,16 @@
         - unless user_signed_in? && current_user.id == @product.user_id
           %div#buy-button
             = link_to "購入画面に進む", purchase_path(@product.id),{class: 'buybtn'}
-          %p.exhibitor-comment
-            = @product.detail
-          %br
-          %p.safety あんしん・あんぜんへの取り組み
     - if user_signed_in? && current_user.id == @product.user_id
       #buy-buttons
         = link_to '商品の編集', edit_product_path(@product.id), class: "ProductShow__container--edit"
         %p or
         = link_to '出品を一旦停止する', "#", class: "halt"
         = link_to 'この商品を削除する', product_path(@product.id), method: :delete, class: "delete"
+        %p.exhibitor-comment
+          = @product.detail
+        %br
+        %p.safety あんしん・あんぜんへの取り組み
     - if user_signed_in?
       .ProductShow__commentbox
         %form.comment{:action => "", :method => "get"}
