@@ -25,9 +25,9 @@
                 - unless @product.persisted?
                   %label{for: "img-file"}
                     %i.fas.fa-camera
-            - if @product.persisted?
-              %label{for: "img-file"}
-                %i.fas.fa-camera.camera
+          - if @product.persisted?
+            %label{for: "img-file"}
+              %i.fas.fa-camera.camera
       #description
         %b 商品名
         %span.necessary 必須
