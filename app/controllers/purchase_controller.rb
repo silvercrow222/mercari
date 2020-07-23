@@ -30,6 +30,7 @@ class PurchaseController < ApplicationController
 
   def done
     @product = Product.find(params[:id])
+    @product.update(buyer_id: current_user.id)
   end
 
 end
