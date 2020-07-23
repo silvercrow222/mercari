@@ -3,6 +3,9 @@
   #main
     = form_with model: @product, local: true do |f|
       #images
+        .notifications
+          - flash.each do |key, value|
+            = content_tag(:div, value, class: key)
         %b 出品画像
         %span （ドラッグアンドドロップで画像を追加できます。）
         #image-box-1
@@ -22,6 +25,8 @@
         = f.text_area :detail, required: true
         %br/
       #about
+        .error-message.error-message-hidden
+          カテゴリーを選択してください
         %b カテゴリー
         %span.necessary 必須
         = f.collection_select :category, @category, :id, :name, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select",required: true }
