@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def show
-    - if user_signed_in?
+    if user_signed_in?
       @address = Address.where(user_id: current_user.id).first
       card = Card.where(user_id: current_user.id).first
       @product = Product.find(params[:id])
