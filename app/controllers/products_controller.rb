@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
+    @images = @product.images
   end
   
   def new

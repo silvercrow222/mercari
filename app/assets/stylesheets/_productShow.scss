@@ -1,7 +1,7 @@
 .ProductShow {
   &__container {
     background-color: rgb(245, 245, 245);
-    padding: 0 0 40px 0;
+    padding-bottom: 10px;
     width: 100%;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     &--one {
@@ -123,7 +123,6 @@
     width: 700px;
     margin: 20px auto;
     padding: 10px 40px 20px;
-    // margin: 0 auto;
     background-color: white;
     .comment {
       margin: 20px 0 10px;
@@ -145,13 +144,16 @@
         border-radius: 4px;
         margin: 8px 0;
         color: white;
+        transition: opacity 1s;
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
   }
   .NearFooter {
     border-top: 1px solid #eee;
     width: 100%;
-    // display: flex;
     &__line {
       width: 620px;
       margin: 0 auto;
