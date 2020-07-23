@@ -1,9 +1,11 @@
 #container
-  #logo
-    = image_tag("logo.png", width: 200)
+  = render partial: './simpleHeader'
   #main
     = form_with model: @product, local: true do |f|
       #images
+        .notifications
+          - flash.each do |key, value|
+            = content_tag(:div, value, class: key)
         %b 出品画像
         %span （ドラッグアンドドロップで画像を追加できます。）
         #image-box-1
@@ -23,6 +25,8 @@
         = f.text_area :detail, required: true
         %br/
       #about
+        .error-message.error-message-hidden
+          カテゴリーを選択してください
         %b カテゴリー
         %span.necessary 必須
         - if @product.persisted?
@@ -93,12 +97,4 @@
       %span.certification 加盟店規約
       に同意したことになります。
 
-  #footer
-    .f-btns
-      = link_to("プライバシーポリシー", "#", class: "f-letter")
-      = link_to("フリマ利用規約", "#", class: "f-letter")
-      = link_to("特定商取引に関する表記", "#", class: "f-letter")
-    
-    .f-logo
-    .author
-      ©︎ Furima, Inc.
+= render partial: './simpleFooter'

@@ -45,9 +45,20 @@
     %h3.Payment--top 支払い方法
     .Payment__add
       %h3.Payment__add--top クレジットカード一覧
-      = link_to new_card_path, class: 'Payment__add--btn btn' do
-        %span.fas.fa-credit-card.Payment__add--pay
-        クレジットカードを追加する
+      - if @card.present?
+        .card-container
+          .card-info
+            = "**** **** ****" + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          .card-delete-btn
+            = link_to "削除", "/cards/{card.id}", method: :delete, class: "delete-btn"
+      - else
+        = link_to new_card_path, class: 'Payment__add--btn btn' do
+          %span.fas.fa-credit-card.Payment__add--pay
+          クレジットカードを追加する
       .Payment__add--border
 
 = render './footer'
