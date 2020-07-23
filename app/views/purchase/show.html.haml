@@ -1,6 +1,5 @@
 .transaction-pay
-  .transaction-pay__logo
-    = image_tag "logo.png", class: 'transaction-pay__logo-img', alt:"ロゴ"
+  = render partial: './simpleHeader'
   .transaction-pay__content
     %h2.transaction-pay__title 購入内容の確認
     .transaction-pay__item
@@ -39,10 +38,25 @@
           .transaction-pay__table-way
             %h3 配送先
             .transaction-pay__table-register
+              %span 郵便番号：
               = @address.postal_code
+              %br
+              %span 都道府県：
               = @address.prefecture_id
+              %br
+              %span 市区町村：
+              = @address.city
+              %br
+              %span 番地：
               = @address.block
+              %br
+              %span アパート名（任意）：
+              %br
               = @address.apartment
+              %span お名前：
+              =current_user.family_name
+              =current_user.first_name
+              %span 様
           .transaction-pay__table-buy
             = form_tag(action: :pay, method: :post, product_id: @product) do
               %button.transaction-pay__table-buy-button 購入する
