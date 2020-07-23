@@ -14,7 +14,6 @@
           %li.header-box__sign-up__box__text--active{ id: "end" }
             完了
             .header-box__sign-up__box__round__last
-%body.sign
   .main
     .main__box
       .main__box__container__one
@@ -24,16 +23,4 @@
         .back
           = link_to("トップへ戻る", root_path, {class: "back-home"})
 
-
-.footer-box
-  .footer-box__one
-    %ul.footer-box__one__list
-      %li.footer_box__one__list__detail
-        = link_to 'プライバシーポリシー', "#", class: 'policy'
-      %li.footer_box__one__list__detail
-        = link_to 'メルカリ利用規約' , "#", class: 'policy'
-      %li.footer_box__one__list__detail
-        = link_to '特定商取引に関する表記', "#", class: 'policy'
-  .footer-box__two
-  .footer-box__three
-    © Furima, Inc.
+= render partial: './simpleFooter'

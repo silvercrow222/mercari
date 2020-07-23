@@ -2,6 +2,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def show
+    @address = Address.where(user_id: current_user.id).first
     card = Card.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
     if card.blank?
@@ -31,4 +32,5 @@ class PurchaseController < ApplicationController
     @product = Product.find(params[:id])
     @product.update(buyer_id: current_user.id)
   end
+
 end
