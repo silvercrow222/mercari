@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_024804) do
     t.string "city", null: false
     t.string "block", null: false
     t.string "apartment"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_024804) do
     t.integer "brand_id"
     t.integer "prefecture_id", null: false
     t.integer "buyer_id"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_024804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"

@@ -28,10 +28,13 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    if @product.save
+    @category = Category.all.order("id ASC").limit(13)
+    if @product.images.present?
+      @product.save
       redirect_to root_path
     else
-      render :new
+      flash[:alert] = '画像を選択してください'
+      redirect_to new_product_path
     end
   end
 
