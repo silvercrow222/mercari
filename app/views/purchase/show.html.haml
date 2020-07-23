@@ -39,7 +39,10 @@
           .transaction-pay__table-way
             %h3 配送先
             .transaction-pay__table-register
-              -# = @address
+              = @address.postal_code
+              = @address.prefecture_id
+              = @address.block
+              = @address.apartment
           .transaction-pay__table-buy
             = form_tag(action: :pay, method: :post, product_id: @product) do
               %button.transaction-pay__table-buy-button 購入する
