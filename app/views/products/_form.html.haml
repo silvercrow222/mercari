@@ -1,6 +1,5 @@
 #container
-  #logo
-    = image_tag("logo.png", width: 200)
+  = render partial: './simpleHeader'
   #main
     = form_with model: @product, local: true do |f|
       #images
@@ -84,12 +83,4 @@
       %span.certification 加盟店規約
       に同意したことになります。
 
-  #footer
-    .f-btns
-      = link_to("プライバシーポリシー", "#", class: "f-letter")
-      = link_to("フリマ利用規約", "#", class: "f-letter")
-      = link_to("特定商取引に関する表記", "#", class: "f-letter")
-    
-    .f-logo
-    .author
-      ©︎ Furima, Inc.
+= render partial: './simpleFooter'
