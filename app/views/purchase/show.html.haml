@@ -41,18 +41,12 @@
               %span 郵便番号：
               = @address.postal_code
               %br
-              %span 都道府県：
-              = @address.prefecture_id
-              %br
-              %span 市区町村：
+              %span 住所：
+              = @address.prefecture.name
               = @address.city
-              %br
-              %span 番地：
               = @address.block
-              %br
-              %span アパート名（任意）：
-              %br
               = @address.apartment
+              %br
               %span お名前：
               =current_user.family_name
               =current_user.first_name
