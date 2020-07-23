@@ -1,10 +1,12 @@
+= render './simpleHeader'
+
 .transaction-done
   .transaction-done__head
   .transaction-done__content
     .transaction-done__text
       購入が完了しました！
     .transaction-done__image
-      = image_tag "200px-Carandini.jpg", alt:"商品画像", class: "transaction-done__image--img"
+      = image_tag "#{@product.images[0].src.url}", alt:"商品画像", class: "transaction-done__image--img"
     .transaction-done__title
       = @product.name
     .transaction-done__price
@@ -14,3 +16,7 @@
         (送料込み)
   .transaction-done__btn
     = link_to "トップページに戻る", root_path
+
+= render './simpleFooter'
+
+.space

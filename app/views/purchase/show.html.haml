@@ -1,10 +1,11 @@
+= render partial: './simpleHeader'
+
 .transaction-pay
-  = render partial: './simpleHeader'
   .transaction-pay__content
     %h2.transaction-pay__title 購入内容の確認
     .transaction-pay__item
       .transaction-pay__item-box
-        = image_tag "200px-Carandini.jpg", class: "transaction-pay__item-image"
+        = image_tag "#{@product.images[0].src.url}", class: "transaction-pay__item-image"
       .transaction-pay__item-detail
         %p.transaction-pay__item-detail--name
           = @product.name
@@ -54,11 +55,5 @@
           .transaction-pay__table-buy
             = form_tag(action: :pay, method: :post, product_id: @product) do
               %button.transaction-pay__table-buy-button 購入する
-  .futter-box
-    .futter-btns
-      = link_to("プライバシーポリシー", "#", class: "f-letter")
-      = link_to("フリマ利用規約", "#", class: "f-letter")
-      = link_to("特定商取引に関する表記", "#", class: "f-letter")
-    .futter-logo
-    .author
-      ©︎ Furima, Inc.
+
+= render './simpleFooter'

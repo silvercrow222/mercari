@@ -31,8 +31,13 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @category = Category.all.order("id ASC").limit(13)
     if @product.images.present?
-      @product.save
-      redirect_to root_path
+      if @product.price >= 300 && @product.price <= 9999999
+        @product.save
+        redirect_to root_path
+      else 
+        flash[:alert] = '価格は300円から9999999円までです'
+        render :new
+      end
     else
       flash[:alert] = '画像を選択してください'
       redirect_to new_product_path

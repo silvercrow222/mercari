@@ -32,7 +32,7 @@ $(function(){
   $('#parent_category_edit').on('change', function() {
   // 親カテゴリーのデータを取得して変数にいれる
     var productcategory = document.getElementById('parent_category_edit').value;//.value;new FormData(this).value;
-    if (productcategory != '選択してください'){
+    if (productcategory != ''){
      // ajaxの処理。urlを/products/category_childrenにしないとrenderでeditに戻された時に上手く働かない
       $.ajax({
         url: 'category_children',
@@ -66,7 +66,7 @@ $(function(){
   // 子カテゴリーとやっていることは基本的に同じです 
   $('.listing-select-wrapper--edit').on('change', '#child_category_edit', function(){
     var productcategory  = document.getElementById('child_category_edit').value;
-    if (productcategory  !== "---") {
+    if (productcategory  !== "") {
       $.ajax({
         url: 'category_grandchildren',
         type: 'GET',
