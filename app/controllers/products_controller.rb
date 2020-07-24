@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   # before_action :move_to_index, except: [:index, :show]
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
-  before_action :set_product, only: [:edit, :update, :destroy, :show]
+  before_action :set_product, only: [:imageEdit, :imageUpdate, :edit, :update, :destroy, :show]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
       @product = Product.new
       @product.images.new
       @category = Category.all.order("id ASC").limit(13)
+      @length = 0
     else
       redirect_to new_user_session_path
     end
@@ -44,8 +45,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def imageEdit
+    @length = @product.images.length
+    @checks = []
+  end
+
+  def imageUpdate
+    boxcheck = params[:boxcheck]
+    if @product.update(product_params)
+      redirect_to edit_product_path(params[:id], boxcheck: boxcheck), notice: '更新されました'
+    else
+      render :imageEdit
+    end
+  end
+
   def edit
     @category = Category.all.order("id ASC").limit(13)
+    @length = @product.images.length
+    @boxcheck = params[:boxcheck]
   end
     
   def category_children
@@ -62,7 +79,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to products_path, notice: '更新されました'
+      redirect_to product_path(params[:id]), notice: '更新されました'
     else
       render :edit
     end

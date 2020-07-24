@@ -1,4 +1,12 @@
 $(function(){
+  var cameraPosition = function() {
+    if ($('#image-box-1').children('.item-image').length == 4 || $('#image-box-1').children('.item-image').length == 9) {
+      $('.camera').css('top', '-95px').css('left', '574px');
+    } else {
+      $('.camera').css('top', '64px').css('left', '-78px');
+    };
+  };
+
   var dataBox = new DataTransfer();
   var file_field = document.querySelector('input[type=file]')
   $('#img-file').change(function(){
@@ -13,18 +21,23 @@ $(function(){
         $('#image-box__container').css('display', 'none')   
       }
       fileReader.onloadend = function() {
+        var fileIndex = [1,2,3,4,5,6,7,8,9,10];
+        lastIndex = $('.item-image:last').data('index');
+        fileIndex.splice(0, lastIndex);
         var src = fileReader.result
-        var html= `<div class='item-image' data-image="${file.name}">
+        var html= `<div class='item-image' data-index="${fileIndex[0]}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
                         <img src=${src} width="120" height="120" >
                       </div>
                     </div>
                     <div class='item-image__operetion'>
-                      <div class='item-image__operetion--delete'>削除</div>
+                      <div class='item-image__operetion--delete js-remove'>削除</div>
                     </div>
                   </div>`
         $('#image-box__container').before(html);
+        $('#image-box__container').attr('data-index', fileIndex[0] + 1)
+        cameraPosition();
       };
       $('#image-box__container').attr('class', `item-num-${num}`)
     });
@@ -54,8 +67,11 @@ window.onload = function(e){
         $('#image-box__container').css('display', 'none')   
       }
       fileReader.onload = function() {
+        var fileIndex = [1,2,3,4,5,6,7,8,9,10];
+        lastIndex = $('.item-image:last').data('index');
+        fileIndex.splice(0, lastIndex);
         var src = fileReader.result
-        var html =`<div class='item-image' data-image="${file.name}">
+        var html =`<div class='item-image' data-index="${fileIndex[0]}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
                         <img src=${src} width="120" height="120" >
@@ -66,11 +82,23 @@ window.onload = function(e){
                     </div>
                   </div>`
       $('#image-box__container').before(html);
+      $('#image-box__container').attr('data-index', fileIndex[0] + 1)
       };
       $('#image-box__container').attr('class', `item-num-${num}`)
     })
   })
 }
+
+  window.onload = function() {
+    cameraPosition();
+    $('.hidden-destroy').each(function(index) {
+      var i = index
+      if ($('#boxcheck')[0].innerText.includes(i)) {
+        $(`#product_images_attributes_${i}__destroy`)[0].checked = true;
+      };
+    });
+  }
+
   $(document).on("click", '.item-image__operetion--delete', function(){
     var target_image = $(this).parent().parent()
     var target_name = $(target_image).data('image')
@@ -90,7 +118,11 @@ window.onload = function(e){
     var num = $('.item-image').length
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
-  })
+    const targetIndex = $(this).parent().parent().data('index');
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    cameraPosition();
+  });
 
   $('.btn1').on('click', function (e) {
     if (document.getElementById('child_category_edit').value == "---") {
@@ -113,5 +145,27 @@ window.onload = function(e){
       $('.error-message').removeClass("error-message-hidden");
       $("html,body").animate({scrollTop:$('#about').offset().top});
     }
+  });
+
+  $('.display-none').hide();
+
+  var check = []
+  var url = `${$('#form1').attr('action')}?`
+  $('.item-image__operetion--delete').on('click', function() {
+    i = $(this).parent().parent().data('index');
+    $('.hidden-destroy').each(function(index, Element) {
+      if (index == i) {
+        $(this).prop('checked', true);
+        check.push(index);
+        dataFirst = `boxcheck%5B%5D=${index}`
+        data = `&boxcheck%5B%5D=${index}`
+        if (url.slice(-1) == "?") {
+          url += dataFirst
+        } else {
+          url += data
+        }
+        $('#form1').attr('action', url)
+      };
+    });
   });
 });

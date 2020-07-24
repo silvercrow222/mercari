@@ -1,0 +1,43 @@
+#container
+  = render partial: './simpleHeader'
+  #main
+    = form_with url: imageUpdate_product_path(@product.id, boxcheck: @checks), method: :patch, local: true, id: 'form1' do |f|
+      #images
+        .notifications
+          - flash.each do |key, value|
+            = content_tag(:div, value, class: key)
+        %b 出品画像
+        %span （ドラッグアンドドロップで画像を追加できます。）
+        #image-box-1
+          - @product.images.each_with_index do |image, i|
+            .item-image{ data: { index: "#{i}" } }
+              .item-image__content
+                .item-image__content--icon
+                  = image_tag("#{image.src.url}", width: 120, height: 120)
+              .item-image__operetion
+                .item-image__operetion--delete
+                  削除
+            = f.fields_for :images do |i|
+              = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+          .item-num-0#image-box__container{ data: { index: @length } }
+            = f.fields_for :images do |i|
+              .input-area
+                = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+          %label{for: "img-file"}
+            %i.fas.fa-camera.camera
+      #btns 
+        = f.submit '出品画像を更新する', class: "btn1"
+      #about.hidden-destroy
+        .error-message.error-message-hidden
+          カテゴリーを選択してください
+        %b カテゴリー
+        %span.necessary 必須
+        .listing-select-wrapper--edit
+          .listing-select-wrapper--edit__parent
+            = f.collection_select :category_id, Category.roots, :id, :name ,{prompt: "選択してください", selected:  @product.category.parent.parent_id}, {class: 'listing-select-wrapper--edit__parent--select', id: 'parent_category_edit', name: "" }
+          .listing-select-wrapper--edit__child
+            = f.collection_select :category_id, @product.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @product.category.parent_id}, {class: 'listing-select-wrapper--edit__child--select', id: 'child_category_edit', name: "" }
+          .listing-select-wrapper--edit__grandchild
+            = f.collection_select :category_id,@product.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @product.category.id}, {class: 'listing-select-wrapper--edit__grandchild--select', id: 'grandchild_category_edit', name: "product[category_id]" }
+        
+= render partial: './simpleFooter'

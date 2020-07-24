@@ -83,7 +83,7 @@
         %p.safety あんしん・あんぜんへの取り組み
     - if user_signed_in? && current_user.id == @product.user_id
       #buy-buttons
-        = link_to '商品の編集', edit_product_path(@product.id), class: "ProductShow__container--edit"
+        = link_to '商品の編集', imageEdit_product_path(@product.id), class: "ProductShow__container--edit"
         %p or
         = link_to '出品を一旦停止する', "#", class: "halt"
         = link_to 'この商品を削除する', product_path(@product.id), method: :delete, class: "delete"

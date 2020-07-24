@@ -158,6 +158,10 @@ $dark-gray: #2f2f2f;
                 @include btn($color-main, #fff);
                 font-weight: bold;
                 cursor: pointer;
+                transition: opacity 1s;
+                &:hover {
+                    opacity: 0.5;
+                }
             }
             .btn2 {
                 @include btn();
@@ -165,6 +169,10 @@ $dark-gray: #2f2f2f;
                 line-height: 40px;
                 text-align: center;
                 margin-top: 20px;
+                transition: opacity 1s;
+                &:hover {
+                    opacity: 0.5;
+                }
             }
             .background {
                 color: #0a98ee;
@@ -206,5 +214,8 @@ $dark-gray: #2f2f2f;
         position: relative;
         top: 64px;
         left: -78px;
+    }
+    .hidden-destroy {
+        display: none;
     }
 }
