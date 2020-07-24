@@ -2,10 +2,11 @@
   = render partial: './simpleHeader'
   #main
     = form_with model: @product, local: true do |f|
-      .display-none
-        %p#boxcheck #{@boxcheck}
-        = f.fields_for :images do |i|
-          = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+      - if @product.persisted?
+        .display-none
+          %p#boxcheck #{@boxcheck}
+          = f.fields_for :images do |i|
+            = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
       - unless @product.persisted?
         #images
           .notifications
@@ -18,10 +19,8 @@
               = f.fields_for :images do |i|
                 .input-area
                   = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
-                  - unless @product.persisted?
-                    %label{for: "img-file"}
-                      %i.fas.fa-camera
-        = f.submit '出品画像を更新する'
+                  %label{for: "img-file"}
+                    %i.fas.fa-camera
       #description
         %b 商品名
         %span.necessary 必須
