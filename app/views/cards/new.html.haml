@@ -102,6 +102,6 @@
           %span.must 必須
         = text_field_tag "cvc", "", class: "cvc Payment__card--form", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
       #card_token
-      = submit_tag "追加する", id: "token_submit", class: 'Payment__btn btn'
+      = submit_tag "追加する", id: "token_submit", class: 'Payment__card--btn'
 
 = render './footer'

@@ -16,11 +16,11 @@ $(function() {
     }
   );
 
-  $('.UserData__notice').on('click', function() {
-    if ($(this).hasClass('rightActive')) {
+  $('.UserData__info__notice').on('click', function() {
+    if ($(this).hasClass('noticeActive')) {
     } else {
-      $('.UserData__notice').removeClass('rightActive');
-      $(this).addClass('rightActive');
+      $('.UserData__info__notice').removeClass('noticeActive');
+      $(this).addClass('noticeActive');
     };
   });
 });

@@ -1,121 +1,126 @@
 * {
-  box-sizing: border;
+    box-sizing: border;
 }
 
-.Header {
-  background-color: white;
-  height: 100px;
-  width: 100vw;
-  border-top: 1px solid #eee;
-  box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 100;
+$main-color: #3ccace;
+$hover-color: orange;
+$text-color: #333;
+$text-size: 14px;
 
-  &__top {
-    width: 1020px;
-    margin: 8px auto 0;
-    display: flex;
-    &--logo {
-      height: 34px;
-      width: 135px;
-      margin-right: 40px;
-      position: relative;
-      top: 3px;
-    }
-    &--search {
-      height: 38px;
-      width: 840px; 
-      color: #333;
-      background-color: #f5f5f5;
-      padding: 0 40px 0 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    &--icon {
-      height: 40px;
-      width: 40px;
-      font-size: 14px;
-      position: relative;
-      top: 13px;
-      left: -26px;
-    }
-  }
-
-  &__bottom {
-    height: 44px;
+@mixin headerBase($height) {
+    height: $height;
     width: 1020px;
     margin: 8px auto 0;
     display: flex;
     justify-content: space-between;
-  }
-  &__left {
-    display: flex;
-  }
-  &__category {
-    margin-right: 22px;
-  }
-  &__tag {
-    color: #333;
-    font-size: 14px;
-    font-weight: bold;
+}
+@mixin text() {
+    color: $text-color;
+    font-size: $text-size;
     line-height: 32px;
-    display: flex;
-    &:hover {
-      color: orange;
-    }
-  }
-  &__right {
-    display: flex;
-  }
-  &__notice {
-    display: flex;
-    margin-right: 22px;
-    &--icon {
-      color: #ccc;
-      font-size: 20px;
-      padding: 6px 10px 0 0;
-    }
-    &--text {
-      color: #333;
-      font-size: 14px;
-      line-height: 32px;
-      &:hover {
-        color: orange;
-      }
-    }
-  }
-  &__mypage {
-    display: flex;
-    &--icon {
-      height: 32px;
-      width: 32px;
-      background-color: #eee;
-      border-radius: 100px;
-    }
-    &--text {
-      color: #333;
-      font-size: 14px;
-      line-height: 32px;
-      text-decoration: none;
-      margin-left: 10px;
-      &:hover {
-        color: orange;
-      }
-    }
-    &--marginRight {
-      margin-right: 17px;
-    }
-  }
 }
 
-.icon {
-  height: 15px;
-  width: 15px;
-  margin-right: 4px;
-  position: relative;
-  top: 8px;
+
+.Header {
+    height: 100px;
+    width: 100vw;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 100;
+
+    &__top {
+        @include headerBase($height: 40px);
+        &--logo {
+            height: 34px;
+            width: 135px;
+            margin-right: 40px;
+            position: relative;
+            top: 3px;
+        }
+        &--search {
+            height: 38px;
+            width: 840px;
+            background-color: #f5f5f5;
+            padding: 0 40px 0 10px;
+            color: $text-color;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        &--icon {
+            height: 40px;
+            width: 40px;
+            font-size: $text-size;
+            position: relative;
+            top: 13px;
+            left: -26px;
+        }
+    }
+
+    &__bottom {
+        @include headerBase($height: 44px);
+        &__left, &__right {
+            display: flex;
+        }
+        &__tag {
+            @include text();
+            font-weight: bold;
+            display: flex;
+            &:hover {
+                color: $hover-color;
+            }
+        }
+        #category {
+            margin-right: 22px;
+        }
+        .icon {
+            height: 15px;
+            width: 15px;
+            margin-right: 4px;
+            position: relative;
+            top: 8px;
+        }
+
+        &__notice {
+            margin-right: 22px;
+            display: flex;
+            &--icon {
+                padding: 6px 10px 0 0;
+                color: #ccc;
+                font-size: 20px;
+            }
+            &--text {
+                @include text();
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+        }
+
+        &__mypage {
+            display: flex;
+            &--icon {
+                height: 32px;
+                width: 32px;
+                background-color: #eee;
+                border-radius: 100px;
+            }
+            &--text {
+                @include text();
+                margin-left: 10px;
+                text-decoration: none;
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+            #signUp {
+                margin-right: 18px;
+            }
+        }
+    }
 }
+

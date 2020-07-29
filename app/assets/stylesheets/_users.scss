@@ -1,282 +1,289 @@
 * {
-  box-sizing: border;
+    box-sizing: border;
+    text-decoration: none;
+    h3 {
+        font-weight: bold;
+    }
 }
-h3 {
-  font-weight: bold;
+
+$main-color: #3ccace;
+$back-color: white;
+$back-color-gray: #fafafa;
+$back-color-gray2: #eee;
+$text-color: #333;
+$text-size: 14px;
+$text-size2: 16px;
+$border: 2px solid $main-color;
+
+@mixin flexColumn() {
+    display: flex;
+    flex-direction: column;
 }
+@mixin text() {
+    color: $text-color;
+    font-size: $text-size;
+}
+@mixin list($margin) {
+    @include text();
+    background-color: $back-color;
+    padding: 14px 16px;
+    margin-top: $margin;
+}
+@mixin height($height) {
+    height: $height;
+    line-height: $height;
+}
+@mixin btn($width) {
+    @include height(50px);
+    width: $width;
+    background-color: $main-color;
+    margin: 24px 126px;
+    color: $back-color;
+    font-size: $text-size;
+    border-radius: 4px;
+    border: none;
+    transition: opacity 1s;
+    display: block;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+@mixin form($width) {
+    height: 48px;
+    width: $width;
+    padding-left: 16px;
+    margin-top: 8px;
+    border: 1.2px solid #ccc;
+    border-radius: 4px;
+}
+@mixin relative($top, $left) {
+    position: relative;
+    top: $top;
+    left: $left;
+}
+
 
 .wrapper {
-  background-color: #f6f6f6;
-  padding: 40px 0;
-  display: flex;
-}
-
-.btn {
-  color: white;
-  background-color: #3ccace;
-  height: 50px;
-  width: 320px;
-  margin: 24px 126px;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 48px;
-  text-decoration: none;
-  transition: opacity 1s;
-  display: block;
-  &:hover {
-    opacity: 0.5;
-  }
+    background-color: #f6f6f6;
+    padding: 40px 0;
+    display: flex;
 }
 
 .LinkList {
-  width: 280px;
-  margin-right: 40px;
-  margin-left: calc(calc(100% - 1020px)/2);
-  &__main {
-    display: flex;
-    flex-direction: column;
-    &--list {
-      color: #333;
-      background-color: white;
-      padding: 14px 16px;
-      margin-top: 1.5px;
-      font-size: 14px;
-      text-decoration: none;
+    width: 280px;
+    margin-right: 40px;
+    margin-left: calc( calc( 100% - 1020px ) / 2 );
+
+    &__main {
+        @include flexColumn();
+        &--list {
+            @include list(1.5px);
+            &:hover {
+                background-color: $back-color-gray;
+            }
+        }
     }
-    &--list:hover {
-      background-color: #fafafa;
+
+    &__config {
+        @include flexColumn();
+        &--top {
+            margin: 40px 0 8px;
+            font-size: $text-size2;
+        }
+        &--list {
+            @include list(1px);
+            text-align: left;
+            &:hover {
+                background-color: $back-color-gray;
+            }
+        }
     }
-  }
-  &__config {
-    display: flex;
-    flex-direction: column;
-    &--top {
-      margin: 40px 0 8px 0;
-      font-size: 16px;
-      font-weight: bold;
+
+    .greater {
+        padding-right: 5px;
+        opacity: 0.4;
+        float: right;
     }
-    &--list {
-      color: #333;
-      background-color: white;
-      padding: 14px 16px;
-      margin-top: 1px;
-      font-size: 14px;
-      text-align: left;
-      text-decoration: none;
-      &:hover {
-        background-color: #fafafa;
-      }
-    }
+    .listActive {
+        background-color: $back-color-gray2;
+        color: $text-color;
+        font-weight: bold;
   }
 }
 
 .UserData {
-  width: 700px;
-  &__data {
-    background-color: #ddd;
-    background-image: image-url("back.jpg");
-    background-size: cover;
-    height: 140px;
-    padding: 20px;
-    text-align: center;
-    &--icon {
-      background-color: #eee;
-      background-image: image-url("icon.png");
-      background-size: 85px 85px;
-      width: 80px;
-      height: 80px;
-      margin: 25px auto 15px;
-      border-radius: 100px;
+    width: 700px;
+
+    &__data {
+        height: 140px;
+        background: $back-color-gray2 image-url("back.jpg");
+        background-size: cover;
+        padding: 20px;
+        text-align: center;
+        &--icon {
+            width: 80px;
+            height: 80px;
+            background: $back-color-gray2 image-url("icon.png");
+            background-size: 80px 80px;
+            margin: 5px auto;
+            border-radius: 100px;
+        }
     }
-    &--name {
-      font-weight: bolder;
+
+    &__info {
+        font-size: $text-size2;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        &__notice {
+            @include height(50px);
+            width: 50%;
+            background-color: $back-color-gray2;
+        }
+        .noticeActive {
+            background-color: $back-color;
+            border-bottom: $border;
+        }
     }
-  }
-  &__info {
-    height: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-  }
-  &__notice {
-    background-color: #eee;
-    width: 50%;
-    line-height: 50px;
-    display: block;
-  }
-  &__contents1 {
-    background-color: white;
-    height: 400px;
-  }
-  &__bought {
-    background-color: #fafafa;
-    height: 70px;
-    border-bottom: 2px solid #3ccace;
-    padding-left: 20px;
-    margin-top: 40px;
-    line-height: 70px;
-    display: black;
-  }
-  &__contents2 {
-    background-color: white;
-    height: 300px;
-  }
+
+    &__contents1 {
+        height: 400px;
+        background-color: $back-color;
+    }
+    #news {
+      display: none;
+    }
+
+    &__bought {
+        @include height(70px);
+        background-color: $back-color-gray;
+        padding-left: 20px;
+        margin-top: 40px;
+        border-bottom: $border;
+    }
+
+    &__contents2 {
+        height: 300px;
+        background-color: $back-color;
+        .noData {
+            width: 100px;
+            height: 115px;
+            background-image: image-url('gray.png');
+            background-size: 400px 115px;
+            margin: 0 auto;
+            @include relative(60px, initial);
+        }
+        .noDataText {
+            color: #ddd;
+            font-size: $text-size2;
+            text-align: center;
+            @include relative(70px, initial);
+        }
+    }
 }
 
 .Payment {
-  width: 700px;
-  &--top {
-    color: #333;
-    background-color: white;
-    height: 50px;
-    margin-bottom: 1.5px;
-    font-size: 22px;
-    line-height: 50px;
+    width: 700px;
+    color: $text-color;
     text-align: center;
-  }
-  &__add {
-    background-color: white;
-    height: 250px;
-    padding: 20px 64px;
-    text-align: center;
-    .card-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-      .card-info{
-        text-align: start;
-      }
-      .card-delete-btn {
-        line-height: 48px;
-      }
-    }
-    .delete-btn {
-      margin-left: 50px;
-      border: 1px solid #fc4040;
-      color: #fc4040;
-      padding: 5px 20px;
-      border-radius: 2px;
-    }
-    &--pay {
-      padding-right: 15px;
-    }
-    &--border {
-      width: 600px;
-      padding-top: 10px;
-      margin: 0 auto;
-      border-bottom: 1px solid #eee;
-    }
-  }
 
-  &__card {
-    color: #333;
-    background-color: white;
-    height: 530px;
-    padding: 40px 64px;
-    font-size: 14px;
-    text-align: center;
-    &--form {
-      height: 48px;
-      width: 340px;
-      padding-left: 16px;
-      margin-top: 8px;
-      border: 1.2px solid #ccc;
-      border-radius: 4px;
-    }
-    &--formhalf {
-      height: 48px;
-      width: 126px;
-      padding-left: 16px;
-      margin: 8px 12px 0 8px;
-      border: 1.2px solid #ccc;
-      border-radius: 4px;
-    }
-  }
-  &__number--top {
-    position: relative;
-    left: -115px;
-  }
-  &__limit {
-    margin-right: 20px;
     &--top {
-      margin-top: 32px;
-      position: relative;
-      left: -112px;
+        @include height(50px);
+        background-color: $back-color;
+        margin-bottom: 1.5px;
+        font-size: 22px;
     }
-  }
-  &__cord--top {
-    margin-top: 32px;
-    position: relative;
-    left: -87px;
-  }
-  &__btn {
-    width: 343px;
-    margin: 40px 0 0 115px;
-    border: none;
-  }
-}
 
-#news {
-  display: none;
-}
+    &__add {
+        height: 250px;
+        background-color: $back-color;
+        padding: 20px 64px;
 
-.greater {
-  float: right;
-  opacity: 0.4;
-  padding-right: 5px;
-}
+        &__data {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            &--info{
+                text-align: start;
+            }
+            &--btn {
+                line-height: 48px;
+                margin-bottom: 24px;
+                .delete-btn {
+                    padding: 5px 20px;
+                    margin-left: 50px;
+                    color: #fc4040;
+                    border: 1px solid #fc4040;
+                    border-radius: 2px;
+                }
+            }
+        }
 
-.noData {
-  background-image: image-url('gray.png');
-  background-size: 400px, 100px;
-  width: 100px;
-  height: 115px;
-  margin: 0 auto;
-  position: relative;
-  top: 60px;
-}
-.noDataText {
-  color: #ddd;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  top: 70px;
-}
+        &--pay {
+            padding-right: 15px;
+        }
+        &--btn {
+            @include btn(320px);
+        }
+        &--border {
+            width: 600px;
+            padding-top: 10px;
+            margin: 0 auto;
+            border-bottom: 1px solid $back-color-gray2;
+        }
+    }
 
-.must {
-  color: white;
-  background-color: #3ccace;
-  padding: 2px 4px;
-  margin-left: 6px;
-  border-radius: 2px;
-  font-size: 12px;
-  font-weight: normal;
-}
+    &__card {
+        height: 530px;
+        background-color: $back-color;
+        padding: 40px 64px;
+        font-size: $text-size;
+        &--form {
+            @include form(340px);
+        }
+        &--formhalf {
+            @include form(126px);
+            margin: 8px 12px 0 8px;
+        }
+        &--btn {
+            @include btn(343px);
+            margin: 40px 0 0 115px;
+        }
+        .must {
+            background-color: $main-color;
+            padding: 2px 4px;
+            margin-left: 6px;
+            color: $back-color;
+            font-size: 12px;
+            font-weight: normal;
+            border-radius: 2px;
+        }
+    }
 
-.signup-card-list {
-  display: flex;
-  justify-content: center;
-}
-.signup-card-list li {
-  margin: 6px;
-  position: relative;
-  left: -20px;
-}
+    &__number {
+        &--top {
+            @include relative(initial, -115px);
+        }
+        .signup-card-list {
+            display: flex;
+            justify-content: center;
+        }
+        .signup-card-list li {
+            margin: 6px;
+            @include relative(initial, -20px);
+        }
+    }
 
-.rightActive {
-  background-color: white;
-  border-bottom: 2px solid #3ccace;
-  height: 48px;
-}
+    &__limit {
+        margin-right: 20px;
+        &--top {
+            margin-top: 32px;
+            @include relative(initial, -112px);
+        }
+    }
 
-.leftActive {
-  color: #333;
-  background-color: #eee;
-  font-weight: bold;
-  &:hover {
-  background-color: #eee;
-  }
+    &__cord--top {
+        margin-top: 32px;
+        @include relative(initial, -87px);
+    }
 }
