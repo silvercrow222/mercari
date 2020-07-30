@@ -9,7 +9,7 @@ We are making clone of Free Market site.
 # FURIMA
 ~~You can check this app on <a href="http://52.192.240.140/">AWS</a>!~~
 ~~Please search for it on the internet.~~
-Sorry, this app is locked now.
+<br>Sorry, this app is locked now.
 
 <img width="1406" alt="screen1" src="https://user-images.githubusercontent.com/66178755/88137414-73180900-cc26-11ea-9ee4-4f55b4b7e51d.png">
 
